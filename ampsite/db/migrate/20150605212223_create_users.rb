@@ -7,5 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :avatar_url
 
       t.timestamps null:false
+    end
   end
 end

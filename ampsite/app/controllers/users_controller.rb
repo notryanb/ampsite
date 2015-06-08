@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @users = User.all
   end
 
   # GET Create User
@@ -9,10 +10,12 @@ class UsersController < ApplicationController
 
   # POST create User
   def create
+
   end
 
   # For user Profile
   def show
+
   end
 
   # For seeing all users
@@ -33,6 +36,16 @@ class UsersController < ApplicationController
 
   # end a user session
   def logout
+  end
+
+  def test
+    redirect_to 'test'
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
   end
 
 
