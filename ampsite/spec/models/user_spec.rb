@@ -21,10 +21,7 @@ describe 'User' do
         end
       
         context "on an existing user" do
-          let(:user) do
-            u = User.create username: "thisisatest", email: "fake@mail.com", password: 'password', password_confirmation: 'password'
-            User.find u.id
-          end
+          let(:user) { User.create username: "thisisanothertest", email: "anotherfake@mail.com", password: 'password', password_confirmation: 'password' }
       
           it "should be valid with no changes" do
             expect(user).to be_valid
