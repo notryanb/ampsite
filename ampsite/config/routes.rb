@@ -53,4 +53,13 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root :to => 'users#test'
+  
+  resources :users
+  post 'login', to: 'users#login', as: :login
+  get 'logout', to: 'users#logout', as: :logout
+
+  get 'test', to: 'users#test', as: :test
+
 end
