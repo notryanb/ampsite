@@ -32,14 +32,20 @@ class UsersController < ApplicationController
 
   # create a user session
   def login
+    user = User.find_by(username: user_params[:username])
+
+    if user && user.authenticate(user_params[:password])
+      session[:user_id] = user.id
+      redirect_to '/'
+    else
+      redirect_to '/'
+    end
   end
 
   # end a user session
   def logout
-  end
-
-  def test
-    redirect_to 'test'
+    session[:user_id] = nil
+    redirect_to '/'
   end
 
   private

@@ -54,12 +54,11 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => 'users#test'
+  root :to => 'users#index'
   
   resources :users
   post 'login', to: 'users#login', as: :login
   get 'logout', to: 'users#logout', as: :logout
 
-  get 'test', to: 'users#test', as: :test
 
 end
