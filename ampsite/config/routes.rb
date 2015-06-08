@@ -58,7 +58,9 @@ Rails.application.routes.draw do
   
   resources :users
   post 'login', to: 'users#login', as: :login
+  post 'signup', to: 'users#signup', as: :signup
   get 'logout', to: 'users#logout', as: :logout
+
 
 
 end

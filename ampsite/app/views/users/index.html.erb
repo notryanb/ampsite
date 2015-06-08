@@ -9,5 +9,6 @@
   <%= link_to 'Logout', logout_path %>
 <% else %>
   <p> You are not logged in </p>
-  <%= render partial: 'login' %>
+  <%= render partial: 'login' %><br/>
+  <%= render partial: 'signup' %>
 <% end %>
