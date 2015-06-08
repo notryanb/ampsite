@@ -32,20 +32,43 @@ class UsersController < ApplicationController
 
   # create a user session
   def login
+    user = User.find_by(username: user_params[:username])
+
+    if user && user.authenticate(user_params[:password])
+      session[:user_id] = user.id
+      redirect_to '/'
+    else
+      redirect_to '/'
+    end
   end
 
   # end a user session
   def logout
+    session[:user_id] = nil
+    redirect_to '/'
   end
 
-  def test
-    redirect_to 'test'
+  # create a new user
+  def signup
+    # unless user_params[:password] == user_params[:password_confirm]
+    #   flash.now[:notice] = 'Your passwords did not match.'
+    # end
+
+    new_user = User.new(user_params)
+
+    if new_user.save!
+    p "IN SAVE!!!!!"
+      redirect_to '/'
+    end
+
+    p "SAVE ERROR!"
+
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
 
