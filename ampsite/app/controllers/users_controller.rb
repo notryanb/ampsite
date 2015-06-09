@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.new
     @users = User.all
   end
 
   # GET Create User
   def new
+    @user = User.new
   end
 
   # POST create User
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     else
       p "SAVE ERROR!"
-      render action: :index
+      render action: :new
     end
   end
 
