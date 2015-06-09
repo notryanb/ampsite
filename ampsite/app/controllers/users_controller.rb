@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @user = User.new
     @users = User.all
   end
 
@@ -10,7 +11,19 @@ class UsersController < ApplicationController
 
   # POST create User
   def create
+    p "MAKING A NEW USER------------------------"
+    @user = User.new(user_params)
 
+    p "VALID USER?!?!?-------- #{@user.valid?}"
+    p "ERRORS: #{@user.errors.full_messages}"
+    @errs = @user.errors.full_messages
+    @wtf = "THIS IS AN ERROR"
+    if @user.save
+      redirect_to '/'
+    else
+      p "SAVE ERROR!"
+      render action: :index
+    end
   end
 
   # For user Profile
@@ -50,25 +63,16 @@ class UsersController < ApplicationController
 
   # create a new user
   def signup
-    # unless user_params[:password] == user_params[:password_confirm]
-    #   flash.now[:notice] = 'Your passwords did not match.'
-    # end
-
-    new_user = User.new(user_params)
-
-    if new_user.save!
-    p "IN SAVE!!!!!"
-      redirect_to '/'
-    end
-
-    p "SAVE ERROR!"
 
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, 
+                                 :email, 
+                                 :password, 
+                                 :password_confirmation)
   end
 
 

@@ -1,4 +1,14 @@
-<%= form_for :user, url: signup_path do |f| %>
+<%= form_for @user do |f| %>
+
+  <% if @user.errors.any? %>
+  <h2>ERRORS</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %>
+    <% end %>
+  </ul>
+  <% end %>
+
   <%= f.label :username %><br/>
   <%= f.text_field :username %><br/><br/>
 
@@ -6,10 +16,10 @@
   <%= f.text_field :email %><br/><br/>
 
   <%= f.label :password %><br/>
-  <%= f.text_field :password %><br/><br/>
+  <%= f.password_field :password %><br/><br/>
 
   <%= f.label :password_confirm %><br/>
-  <%= f.text_field :password_confirm %><br/><br/>
+  <%= f.password_field :password_confirm %><br/><br/>
   <%= f.submit "Sign up!" %>
 
 <% end %>
