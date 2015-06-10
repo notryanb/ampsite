@@ -1,11 +1,12 @@
 <%= link_to "Home", root_path %>
 
-<% if @err %>
-  <%= @err %>
-<% end %>
+<div class="login-error">
+  <% if @err %>
+    <%= @err %>
+  <% end %>
+</div>
 
 <%= form_for :user, url: login_path do |f| %>
-
 
   <%= f.label :user %>
   <%= f.text_field :username %>
