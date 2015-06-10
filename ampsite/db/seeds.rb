@@ -9,9 +9,17 @@
 # User seeds
 require 'faker'
 
-10.times do |user|
-  User.create(email: Faker::Internet.free_email ,
-              username: Faker::Internet.user_name, 
-              password: '123' )
+# 10.times do |user|
+#   User.create(email: Faker::Internet.free_email ,
+#               username: Faker::Internet.user_name, 
+#               password: 'password123' )
+# end
+
+
+# Create topics for discussion forum
+AMP_TOPIC = [ "Marshall", "Fender", "Orange / Matamp", "Mesa Boogie", "Ampeg", "Hiwatt"]
+
+for topic in AMP_TOPIC
+  Topic.create(title: topic)
 end
 
