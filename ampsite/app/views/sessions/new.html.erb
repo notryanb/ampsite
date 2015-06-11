@@ -2,8 +2,7 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="row login-form">
-       <div class="large-3 columns">
-
+       <div class="large-4 push-2 columns">
           <%= form_for :user, url: login_path do |f| %>
 
             <%= f.label :user %>
@@ -16,14 +15,11 @@
           <% end %>
         </div>
         
-        <div class="large-6 columns">
-          <div class="login-error">
+        <div class="large-3 pull-2 login-form columns">
             <% if @err %>
               <small class="error"><%= @err %></small>
             <% end %>
-          </div>
-
-      </div>
+        </div>
     </div>
   </div>
 </div>

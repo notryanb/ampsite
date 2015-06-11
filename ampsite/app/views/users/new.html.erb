@@ -2,7 +2,7 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="row signup-form">
-       <div class="large-3 columns">
+       <div class="large-4 push-1 columns">
 
         <%= form_for @user do |f| %>
 
@@ -22,9 +22,10 @@
         <% end %>
       </div>
 
-      <div class="large-6 columns">
+      <div class="large-3 pull-3 login-form columns">
+        <small class="error">Errors</small>
         <% if @user.errors.any? %>
-          <% @user.errors.full_messages.each do |msg| %>
+          <% @user.errors.full_messages.uniq.each do |msg| %>
               <small class="error"><%= msg %></small>
           <% end %>
         <% end %>
