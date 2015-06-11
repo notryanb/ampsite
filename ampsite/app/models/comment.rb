@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
-  belongs_to :author, :class_name => 'User'
-  belongs_to :post
+  belongs_to :user, :foreign_key => :user_id
+  belongs_to :post, :foreign_key => :post_id
 
-  validates_presence_of :author, :content
+  validates_presence_of :user, :content
 
 end
