@@ -1,0 +1,9 @@
+<p><%= @post.title %></p>
+<p><%= @post.content %></p>
+<ul>
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+      <li><%= comment.content %> - Author: <%= comment.user.username %>
+    <% end %>
+  <% end %>
+</ul>
