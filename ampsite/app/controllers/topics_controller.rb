@@ -6,6 +6,9 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.find_by(id: params[:id])
+    @posts = @topic.posts
+    render 'show'
   end
 
   def new

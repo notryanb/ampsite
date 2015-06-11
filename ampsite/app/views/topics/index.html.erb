@@ -2,6 +2,6 @@
 <p>Welcome to the Ampsite Discussion Forum.</p>
 <ul>
   <% @topics.each do |topic| %>
-    <li><%= topic.title %>
+    <li><%= link_to topic.title, topic_path(topic.id) %>
   <% end %>
 </ul>

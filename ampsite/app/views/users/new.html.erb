@@ -1,29 +1,36 @@
-<%= link_to "Home", users_path %>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row signup-form">
+       <div class="large-3 columns">
+
+        <%= form_for @user do |f| %>
+
+          <%= f.label :username %>
+          <%= f.text_field :username %>
+
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+
+          <%= f.label :password_confirm %>
+          <%= f.password_field :password_confirmation %>
+          <%= f.submit "Sign up!" %>
+
+        <% end %>
+      </div>
+
+      <div class="large-6 columns">
+        <% if @user.errors.any? %>
+          <% @user.errors.full_messages.each do |msg| %>
+              <small class="error"><%= msg %></small>
+          <% end %>
+        <% end %>
+      </div>
 
 
-
-<%= form_for @user do |f| %>
-
-  <% if @user.errors.any? %>
-  <h2>ERRORS</h2>
-  <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %>
-    <% end %>
-  </ul>
-  <% end %>
-
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirm %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Sign up!" %>
-
-<% end %>
+    </div>
+  </div>
+</div>
