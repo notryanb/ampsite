@@ -4,9 +4,10 @@
     <div class="row new-post">
        <div class="large-4 push-1 columns">
 
-        <%= form_for @post do |f| %>
+        <%= form_for ([:topic, @post]) do |f| %>
+
           <%= f.hidden_field :user_id, :value => current_user.id%>
-          <%= f.hidden_field :topic_id, :value => @topic_id %>
+   
           <%= f.label :title %>
           <%= f.text_field :title %>
 
