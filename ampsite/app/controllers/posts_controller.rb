@@ -12,9 +12,10 @@ class PostsController < ApplicationController
   end
 
   def new
-   p "These are the NEW PARAMS: #{params}"
+    p "--------------- IN POSTS NEW--------------"
     @topic_id = params[:topic_id]
     @post = Post.new
+    render 'new'
 
   end
 
