@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :topic, :foreign_key => :topic_id
   has_many :comments
 
-  validates_presence_of :title, :user, :topic, :content
+  validates_presence_of :title, :user_id, :topic_id, :content
   validates_length_of :title, :within => 5..140
 
 end
