@@ -66,12 +66,15 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   
-  resources :topics
-  resources :posts
-  resources :comments
+  resources :topics do
+    resources :posts do
+      resources :comments
+    end
+  end
 
-  resources :articles
-  resources :replies
+  resources :articles do
+    resources :replies
+  end
   
 
 

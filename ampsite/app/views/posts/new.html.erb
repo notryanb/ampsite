@@ -1,0 +1,33 @@
+<%= @topic_id %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row new-post">
+       <div class="large-4 push-1 columns">
+
+        <%= form_for @post do |f| %>
+          <%= f.hidden_field :user_id, :value => current_user.id%>
+          <%= f.hidden_field :topic_id, :value => @topic_id %>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+
+          <%= f.label :body %>
+          <%= f.text_area :content %>
+
+          <%= f.submit "Submit!" %>
+
+        <% end %>
+      </div>
+
+      <div class="large-3 pull-3 login-form columns">
+        <% if @post.errors.any? %>
+        <small class="error">Errors</small>
+          <% @post.errors.full_messages.uniq.each do |msg| %>
+              <small class="error"><%= msg %></small>
+          <% end %>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+</div>

@@ -1,6 +1,8 @@
 <div class="row">
   <div class="large-12 columns">
 
+<%= link_to 'New Post', new_topic_post_path(@topic) %>
+
 <table class="posts push-1 large-10 columns">
   <caption>Welcome to the <%= @topic.title %> Discussion Forum.</caption>
   <tr>
@@ -12,7 +14,7 @@
 
   <% @posts.each do |post| %>
   <tr>
-    <td><%= link_to post.title, post_path(post.id) %></td>
+    <td><%= link_to post.title, topic_post_path(@topic, post) %></td>
     <td><%= post.user.username %></td>
     <td><%= post.comments.count %></td>
     <td>
