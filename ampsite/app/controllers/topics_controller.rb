@@ -1,7 +1,8 @@
 class TopicsController < ApplicationController
   
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order(title: :asc)
+    @comment_count = Comment.all.count
     render 'index'
   end
 
