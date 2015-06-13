@@ -14,8 +14,9 @@
 
   <% @posts.each do |post| %>
   <tr>
-    <td><%= link_to post.title, topic_post_path(@topic, post) %></td>
-    <td><%= post.user.username %></td>
+    <td><%= link_to post.title, topic_post_path(@topic.id, post) %></td>
+    <td><div class="last-updated"><%= post.created_at.strftime("%b . %d . %Y") %></div>
+        <div class="last-author"><%= post.user.username %></td>
     <td><%= post.comments.count %></td>
     <td>
       <% if post.comments.count > 0 %>

@@ -7,12 +7,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @topic = @post.topic
     @comments = @post.comments
-    render 'posts#show'
+    render 'show'
   end
 
   def new
-    p "--------------- IN POSTS NEW--------------"
     @topic_id = params[:topic_id]
     @post = Post.new
     render 'new'
@@ -20,7 +20,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    p "These are the POST PARAMS: #{post_params}"
     @post = Post.new(post_params)
 
     if @post.save

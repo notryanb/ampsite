@@ -1,9 +1,29 @@
-<p><%= @post.title %></p>
-<p><%= @post.content %></p>
-<ul>
+
+<div class="row">
+  <div class="large-12 columns">
+
+<table class="posts push-1 large-10 columns">
+  <caption>Welcome to the <%= @topic.title %> Discussion Forum.</caption>
+  <tr>
+    <th scope="column" class="topic-header">Author</th>
+    <th scope="column">Message</th>
+  </tr>
+  <tr>
+    <th><%= @post.user.username %></th>
+    <th><%= @post.content %></th>
+  </tr>
+
+
   <% if @comments %>
     <% @comments.each do |comment| %>
-      <li><%= comment.content %> - Author: <%= comment.user.username %>
+    <tr>
+      <td><%= comment.user.username %></td>
+      <td><%= comment.content %></td>
+    </tr>
     <% end %>
   <% end %>
-</ul>
+
+</table>
+
+  </div>
+</div>
