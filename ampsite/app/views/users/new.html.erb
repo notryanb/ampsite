@@ -23,8 +23,8 @@
       </div>
 
       <div class="large-3 pull-3 login-form columns">
-        <small class="error">Errors</small>
         <% if @user.errors.any? %>
+        <small class="error">Errors</small>
           <% @user.errors.full_messages.uniq.each do |msg| %>
               <small class="error"><%= msg %></small>
           <% end %>
