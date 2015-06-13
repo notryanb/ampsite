@@ -1,6 +1,31 @@
-<p>Welcome to the <%= @topic.title %> Discussion Forum.</p>
-<ul>
+<div class="row">
+  <div class="large-12 columns">
+
+<table class="posts push-1">
+  <caption>Welcome to the <%= @topic.title %> Discussion Forum.</caption>
+  <tr>
+    <th scope="column">Post</th>
+    <th scope="column">Author</th>
+    <th scope="column">Comments</th>
+    <th scope="column">Last Comment</th>
+  </tr>
+
   <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post.id) %> - Author: <%= post.user.username %>
+  <tr>
+    <td><%= link_to post.title, post_path(post.id) %></td>
+    <td><%= post.user.username %></td>
+    <td><%= post.comments.count %></td>
+    <td>
+      <% if post.comments.count > 0 %>
+        <div class="last-updated"><%= post.comments.last.updated_at.strftime("%b . %d . %Y") %></div>
+        <div class="last-author"><%= post.comments.last.user.username %>
+    
+      <% end %>
+    </td>
+  </tr>
   <% end %>
-</ul>
+
+</table>
+
+  </div>
+</div>
