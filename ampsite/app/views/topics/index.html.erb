@@ -1,7 +1,35 @@
 
-<p>Welcome to the Ampsite Discussion Forum.</p>
-<ul>
+
+
+
+<div class="row">
+  <div class="large-12 columns">
+
+<table class="posts push-1 large-10 columns">
+  <caption>Welcome to the Ampsite Discussion Forum.</caption>
+  <tr>
+    <th scope="column">Topic</th>
+    <th scope="column">Posts</th>
+    <th scope="column">Comments</th>
+    <th scope="column">Last Post</th>
+  </tr>
+
   <% @topics.each do |topic| %>
-    <li><%= link_to topic.title, topic_path(topic.id) %>
+  <tr>
+    <td><%= link_to topic.title, topic_path(topic.id) %></td>
+    <td><%= topic.posts.count %></td>
+    <td><%= topic.posts.count %></td>
+    <td>
+      <% if topic.posts.count > 0 %>
+        <div class="last-updated"><%= topic.posts.last.updated_at.strftime("%b . %d . %Y") %></div>
+        <div class="last-author"><%= topic.posts.last.user.username %>
+    
+      <% end %>
+    </td>
+  </tr>
   <% end %>
-</ul>
+
+</table>
+
+  </div>
+</div>
