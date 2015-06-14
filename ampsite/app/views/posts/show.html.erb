@@ -1,16 +1,21 @@
+<div class="row">
+  <div class="large-2 columns forum">
+  <%= link_to 'New Comment', new_topic_post_comment_path(@topic, @post, @comment), class: "new-btn" %>
+  </div>
+  </div>
+
 
 <div class="row">
   <div class="large-12 columns">
 
 
-<table class="posts push-1 large-10 columns">
+<table class="posts large-12 columns">
   <caption>Welcome to the <%= @topic.title %> Discussion Forum.</caption>
 
-  <%= link_to 'New Comment', new_topic_post_comment_path(@topic, @post, @comment), class: "new-btn" %>
 
   <tr>
-    <th scope="column" class="topic-header">Author</th>
-    <th scope="column">Message</th>
+    <th class="table-header" scope="column">Author</th>
+    <th class="table-header" scope="column">Message</th>
   </tr>
   <tr>
     <th><%= @post.user.username %></th>
