@@ -17,3 +17,10 @@
 .last-updated {
   font-size: 0.7em;
 }
+
+.new-btn {
+  padding: 5px;
+  background-color: #efefef;
+  border: 1px solid #000000;
+  text-decoration: none;
+}
