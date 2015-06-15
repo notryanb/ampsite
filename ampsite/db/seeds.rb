@@ -17,10 +17,15 @@ end
 
 
 # Create topics for discussion forum
-AMP_TOPIC = [ "Marshall", "Fender", "Orange / Matamp", "Mesa Boogie", "Ampeg", "Hiwatt"]
+AMP_TOPIC = { "Marshall" => "Anything related to Marshall amps",
+              "Fender" =>  "Anything related to Fender amps", 
+              "Orange / Matamp" => "Anything related to Orange or Matamp amps", 
+              "Mesa Boogie" => "Anything related to Mesa Boogie amps", 
+              "Ampeg" => "Anything related to Ampeg amps", 
+              "Hiwatt" => "Anything related to Hiwatt Amps"}
 
-for topic in AMP_TOPIC
-  Topic.create(title: topic)
+AMP_TOPIC.each do |amp, desc| 
+  Topic.create(title: amp, description: desc)
 end
 
 26.times do |post|

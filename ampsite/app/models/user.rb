@@ -18,6 +18,4 @@ class User < ActiveRecord::Base
   validates_length_of :password, :within => 8..20
   validates_confirmation_of :password
 
-  validates_length_of :signature, :maximum => 200
-  validates_length_of :location, :within => 4..20
 end
