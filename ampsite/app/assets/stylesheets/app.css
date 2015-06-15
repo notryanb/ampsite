@@ -30,6 +30,7 @@
   background-color: #333333;
 }
 
-.forum {
+.forum-nav {
+  border: 1px solid #444444;
   padding-top:20px;
 }
