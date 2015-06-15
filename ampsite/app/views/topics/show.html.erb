@@ -2,14 +2,18 @@
   <div class="large-12 columns forum-nav">
     <%= link_to 'New Post', new_topic_post_path(@topic, @post), class: "new-btn" %>
 
+    <div class="right">
+      <%= link_to 'Forum Index', topics_path %>  >> 
+      <%= @topic.title %>  
+    </div>
+
     </div>
   </div>
 
 
 <div class="row">
   <div class="large-12 columns">
-    <table class="posts push-1 large-10 columns">
-      <caption>Welcome to the <%= @topic.title %> Discussion Forum.</caption>
+    <table class="posts large-12 columns">
       <tr>
         <th scope="column">Post</th>
         <th scope="column">Author</th>
@@ -17,21 +21,11 @@
         <th scope="column">Last Comment</th>
       </tr>
 
-      <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to post.title, topic_post_path(@topic.id, post) %></td>
-        <td><div class="last-updated"><%= post.created_at.strftime("%b . %d . %Y") %></div>
-            <div class="last-author"><%= post.user.username %></td>
-        <td><%= post.comments.count %></td>
-        <td>
-          <% if post.comments.count > 0 %>
-            <div class="last-updated"><%= post.comments.last.updated_at.strftime("%b . %d . %Y") %></div>
-            <div class="last-author"><%= post.comments.last.user.username %>
-        
-          <% end %>
-        </td>
-      </tr>
+
+      <% if @posts %>
+        <%= render 'shared/posts' %>
       <% end %>
+
 
     </table>
   </div>
