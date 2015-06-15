@@ -16,7 +16,7 @@
 
   <% @topics.each do |topic| %>
   <tr>
-    <td><%= link_to topic.title, topic_path(topic.id) %></td>
+    <td><%= link_to topic.title, topic_path(topic.id) %> <%= topic.description %></td>
     <td><%= topic.posts.count %></td>
     <td><%= @comment_count %></td>
     <td>

@@ -34,18 +34,22 @@ ActiveRecord::Schema.define(version: 20150610191532) do
   end
 
   create_table "topics", force: :cascade do |t|
-    t.string   "title",      null: false
+    t.string   "title",       null: false
+    t.string   "description", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",           null: false
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
+    t.string   "email",                           null: false
+    t.string   "username",                        null: false
+    t.string   "password_digest",                 null: false
     t.string   "avatar_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "location"
+    t.boolean  "show_email",      default: false
+    t.string   "signature"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end

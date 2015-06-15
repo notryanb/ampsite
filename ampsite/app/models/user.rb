@@ -17,4 +17,5 @@ class User < ActiveRecord::Base
   validates_presence_of :password
   validates_length_of :password, :within => 8..20
   validates_confirmation_of :password
+
 end
