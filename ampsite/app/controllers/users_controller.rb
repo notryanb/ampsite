@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
+  #see all users
   def index
-
   end
 
   # GET Create User
@@ -23,20 +23,42 @@ class UsersController < ApplicationController
 
   # For user Profile
   def show
-
-  end
-
-  # For seeing all users
-  def all
-  end
-
-  # GET Editing user profile
-  def edit
+    render 'show'
   end
 
   # POST Updates
   def update
   end
+  
+
+
+  # GET Editing user account info
+  def edit
+    render 'edit'
+  end
+
+
+  def avatar
+    render 'avatar'
+  end
+
+  def edit_avatar
+  end
+
+  def signature
+    render 'signature'
+  end
+
+  def edit_signature
+  end
+
+  def profile
+    render 'profile'
+  end
+
+  def edit_profile
+  end
+
 
 
   private

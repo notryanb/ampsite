@@ -15,16 +15,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'shared/navbar' %>
+    <%= render 'shared/navbar' %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
 
-
-
-<%= yield %>
-
-<%= render 'shared/footer' %>
-
-<script>
-  $(document).foundation();
-</script>
+    <script>
+      $(document).foundation();
+    </script>
 </body>
 </html>
