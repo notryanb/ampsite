@@ -1,37 +1,40 @@
-<div class="row">  
+<div class="row header-top">  
+  
+
   <div class="large-4 columns">
       <h1>AMPSITE</h1>
   </div>
 
+    <div class="large-8 columns nav-search">
 
-    <div class="large-8 columns top-actions">  
+      <ul class="inline-list right">
+            <% if current_user %>
+              <li><%= link_to 'my Dash', user_path(current_user) %></li>
+              <li><%= link_to 'Logout', logout_path %></li>
+            <% else %>
+              <li><%= link_to "Login", login_path %></li>
+              <li><%= link_to "Signup", signup_path %></li>
+            <% end %>
 
 
-      <div class="inline title-area">
-        <% if current_user %>
-          <li><a href="#"><%= current_user.username %>'s Dashboard</a></li>
-          <li><%= link_to 'Logout', logout_path %></li>
-        <% else %>
-          <li><%= link_to "Login", login_path %></li>
-          <li><%= link_to "Signup", signup_path %></li>
-        <% end %>
-      </div>
 
-      <div class="row collapse">
-        <div class="small-5 push-6 columns search">
-          <input type="text" placeholder="Search for tubes, amps, and schematics">
-        </div>
-        <div class="small-2 columns">
-          <a href="#" class="button postfix">Go</a>
-        </div>
-      </div>
-    </div>
+          <li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <input type="text" placeholder="Schematics, Tubes, Amps">
+              </div>
+              <div class="large-4 small-3 columns">
+                <a href="#" class="alert button expand postfix">Search</a>
+              </div>
+            </div>
+          </li>
+      </ul>
+
   </div>
-    
 
-    </ul>
-    </div>
 </div>
+
+
 
   <div class="row">
     <div class="large-12 columns">
