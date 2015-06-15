@@ -3,7 +3,7 @@
     <%= link_to 'New Comment', new_topic_post_comment_path(@topic, @post, @comment), class: "new-btn" %>
     
     <div class="right">
-      <%= link_to 'Forum Index', topic_path %> >>
+      <%= link_to 'Forum Index', topics_path %> >>
       <%= link_to @post.topic.title, topic_path(@topic) %> 
     </div>
   </div>
@@ -27,25 +27,13 @@
       </tr>
 
       <tr>
-        <td class="user-info">Avatar and User content</td>
+        <td class="user-info">Posts: <%= @post.user.posts.count %></td>
         <td><%= @post.content %></th>
       </tr>
 
 
       <% if @comments %>
-        <% @comments.each do |comment| %>
-        <tr>
-          <th class="table-subheader"><%= @post.user.username %></th>
-          <th class="table-subheader">Subject: <%= @post.title %>  
-            <div class="right">Posted: <%= @post.created_at.strftime("%b . %d . %Y") %>
-            </div>
-          </th>
-        </tr>
-        <tr>
-          <td class="user-info">Posts: <%= comment.user.posts.count %></td>
-          <td><%= comment.content %></td>
-        </tr>
-        <% end %>
+        <%= render 'shared/comments' %>
       <% end %>
 
     </table>
