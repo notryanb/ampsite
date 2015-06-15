@@ -43,6 +43,8 @@ class UsersController < ApplicationController
   end
 
   def edit_avatar
+    p " HIT THE AVATAR UPLOAD ROUTE------------------------"
+    render 'new'
   end
 
   def signature
@@ -67,7 +69,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, 
                                  :email, 
                                  :password, 
-                                 :password_confirmation)
+                                 :password_confirmation,
+                                 :avatar)
   end
 
 
