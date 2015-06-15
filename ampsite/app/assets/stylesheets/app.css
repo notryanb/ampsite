@@ -30,7 +30,17 @@
   background-color: #333333;
 }
 
+.table-subheader {
+  font-size: 0.8em;
+  color: #FFFFFF;
+  font-weight: 100;
+  background-color: #666666;
+}
+
 .forum-nav {
-  border: 1px solid #444444;
   padding-top:20px;
+}
+
+.user-info {
+  background-color: #efefef;
 }
