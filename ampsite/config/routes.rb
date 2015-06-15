@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   resources :users
 
   get 'avatar' => 'users#avatar'
-  put 'edit_avatar' => 'users#avatar'
+  patch 'edit_avatar' => 'users#avatar'
   get 'signature' => "users#signature"
   put 'edit_signature' => "users#signature"
   get 'profile' => "users#profile"
