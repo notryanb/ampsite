@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "80x80>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "80x80#" }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
