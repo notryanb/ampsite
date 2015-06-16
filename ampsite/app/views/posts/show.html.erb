@@ -38,7 +38,14 @@
             <b>Location:</b> <%= @post.user.location %>
           </div>
           </td>
-        <td class="td-content"><%= @post.content %></th>
+        <td class="td-content">
+          <div><%= @post.content %><div>
+          <% if @post.user.signature %>
+            <div class="sig-div"></div>
+            <div class="user-signature">
+              <%= @post.user.signature %>
+            </div>
+          <% end %></th>
       </tr>
 
 
