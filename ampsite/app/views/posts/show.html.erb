@@ -14,7 +14,7 @@
   <div class="large-12 columns">
     <table class="posts large-12 columns">
       <tr>
-        <th class="table-header" scope="column">Author</th>
+        <th class="table-header small-1" scope="column">Author</th>
         <th class="table-header" scope="column">Message</th>
       </tr>
       <tr>
@@ -32,7 +32,7 @@
             <%= image_tag @post.user.avatar.url(:thumb) %> 
           <% end %>
           Posts: <%= @post.user.post_and_comment_count %></td>
-        <td><%= @post.content %></th>
+        <td class="td-content"><%= @post.content %></th>
       </tr>
 
 

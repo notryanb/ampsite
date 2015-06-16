@@ -6,17 +6,20 @@
   <div class="large-12 columns">
 
 <table class="posts large-12 columns">
-  <caption>Welcome to the Ampsite Discussion Forum.</caption>
+  <caption>Welcome to the Ampsite Discussion Forum Index.</caption>
   <tr>
-    <th scope="column" class="large-8 topic-header">Topic</th>
-    <th scope="column" class="large-2 topic-header">Posts</th>
-    <th scope="column" class="large-2 topic-header">Comments</th>
+    <th scope="column" class="large-8 topic-header">Forum Topic</th>
+    <th scope="column" class="large-1 topic-header">Posts</th>
+    <th scope="column" class="large-1 topic-header">Comments</th>
     <th scope="column" class="large-2 topic-header">Last Post</th>
   </tr>
 
   <% @topics.each do |topic| %>
   <tr>
-    <td><%= link_to topic.title, topic_path(topic.id) %> <%= topic.description %></td>
+    <td>
+      <%= link_to topic.title, topic_path(topic.id), class: "topic-link" %> 
+      <div class="topic-description"><%= topic.description %></div>
+    </td>
     <td><%= topic.posts.count %></td>
     <td><%= @comment_count %></td>
     <td>
