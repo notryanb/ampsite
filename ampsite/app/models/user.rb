@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "80x80>" }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => EMAIL_REGEX
   validates_uniqueness_of :email
 
-  validates_presence_of :password
-  validates_length_of :password, :within => 8..20
-  validates_confirmation_of :password
+  validates_presence_of :password, if: :password
+  validates_length_of :password, :within => 8..20, if: :password
+  validates_confirmation_of :password, if: :password
 
 end

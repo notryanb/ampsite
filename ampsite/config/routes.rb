@@ -57,13 +57,9 @@ Rails.application.routes.draw do
   root 'users#index'
   
   resources :users
-
   get 'avatar' => 'users#avatar'
-  patch 'edit_avatar' => 'users#avatar'
   get 'signature' => "users#signature"
-  put 'edit_signature' => "users#signature"
   get 'profile' => "users#profile"
-  put 'edit_profile' => "users#profile"
 
   resources :sessions
 
