@@ -5,11 +5,11 @@
           <%= render 'usernav' %>
     </div>
 
-    <div class="columns push-1 small-8 dash-focus" >
+    <div class="columns pull-1 small-8 dash-focus" >
           <%= form_for @user, :method => 'PUT', :url => user_path(@user), :html => { :multipart => true }  do |f| %>
 
             <%= f.label :signature %>
-            <%= f.text_field :signature %>
+            <%= f.text_area(:signature, cols: 50, rows: 5) %>
             <%= f.submit :submit %>
           <% end %>
     </div>
