@@ -43,6 +43,7 @@
 }
 
 .table-subheader {
+  height: 15px;
   font-size: 0.8em;
   color: #FFFFFF;
   font-weight: 100;
@@ -55,8 +56,19 @@
 
 .user-info {
   background-color: #efefef;
+  vertical-align: top;
+  font-size: 0.6rem;
 }
 
 .td-content {
   vertical-align: top;
+  height: 150px;
+}
+
+.topic-link {
+  font-size: 1.5rem;
+}
+
+.topic-description {
+  font-size: 0.8rem;
 }
