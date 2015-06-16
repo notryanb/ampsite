@@ -4,11 +4,11 @@
 
 .dash-menu {
   margin-top: 20px;
-  background-color: #696969;
+  background-color: #dfdfdf;
 }
 
 .dash-focus {
-  margin-top: 20px;
+
   background-color: :#696969;
 }
 
@@ -54,12 +54,6 @@
   padding-top:20px;
 }
 
-.user-info {
-  background-color: #efefef;
-  vertical-align: top;
-  font-size: 0.6rem;
-}
-
 .td-content {
   vertical-align: top;
   height: 150px;
@@ -71,4 +65,19 @@
 
 .topic-description {
   font-size: 0.8rem;
+}
+
+.stats-header {
+  background-color: #333333;
+  color: #efefef;
+  font-size: 0.8rem;
+}
+
+.user-info {
+  background-color: #efefef;
+  vertical-align: top;
+  font-size: 0.6rem;
+}
+.user-stats {
+  text-align: right;
 }

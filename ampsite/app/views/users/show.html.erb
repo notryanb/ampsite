@@ -5,10 +5,33 @@
           <%= render 'usernav' %>
     </div>
 
-    <div class="columns push-1 small-8 dash-focus" >
-          User Stats Info goes here.
-          <%= image_tag current_user.avatar.url(:thumb) %>
+    <div class="columns small-8 dash-focus" >
+
+
+    <div class="row">
+   
+        <table class="posts small-12 columns">
+          <tr>
+            <th class="stats-header small-2" scope="column"></th>
+            <th class="stats-header" scope="column">Your Forum Stats</th>
+          </tr>
+
+          <tr>
+            <td class="user-stats">Joined: </th>
+            <td><%= current_user.created_at.strftime("%b %d,  %Y") %></th>
+          </tr>
+          <tr>
+            <td class="user-stats">Total Posts: </th>
+            <td><%= current_user.post_and_comment_count %></th>
+          </tr>
+
+
+        </table>
+
     </div>
+
+
+  </div>
 
 
   </div>

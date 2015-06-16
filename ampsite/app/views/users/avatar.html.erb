@@ -6,6 +6,7 @@
     </div>
 
     <div class="columns push-1 small-8 dash-focus" >
+          current avatar: <%= image_tag current_user.avatar.url(:thumb) %>
           <%= form_for @user, :method => 'PUT', :url => user_path(@user), :html => { :multipart => true }  do |f| %>
 
             <%= f.label :avatar %>
