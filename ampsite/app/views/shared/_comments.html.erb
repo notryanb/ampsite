@@ -11,7 +11,14 @@
     <% if comment.user.avatar.url != "/avatars/original/missing.png" %>
       <%= image_tag comment.user.avatar.url(:thumb) %> 
     <% end %>
-    Posts: <%= comment.user.post_and_comment_count %></td>
+    <div>
+      <b>Posts:</b> <%= comment.user.post_and_comment_count %>
+    </div>
+    <div>
+      <b>Location:</b> <%= comment.user.location %>
+    </div>
+  </td>
+  
   <td class="td-content"><%= comment.content %></td>
 </tr>
 <% end %>

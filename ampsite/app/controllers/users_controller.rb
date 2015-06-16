@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   # POST Updates
   def update
     @user = User.find_by(id: params[:id])
-    if @user.update_attributes(user_avatar_params)
+    if @user.update_attributes(user_params)
       render 'show'
     else
       Rails.logger.info(@user.errors.messages.inspect)
@@ -50,29 +50,15 @@ class UsersController < ApplicationController
     render 'avatar'
   end
 
-  def edit_avatar
-
-  end
-
-
-
   def signature
+    @user = current_user
     render 'signature'
   end
 
-  def edit_signature
-  end
-
-
-
   def profile
+    @user = current_user
     render 'profile'
   end
-
-  def edit_profile
-  end
-
-
 
   private
 
@@ -80,7 +66,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, 
                                  :email, 
                                  :password, 
-                                 :password_confirmation)
+                                 :password_confirmation,
+                                 :avatar,
+                                 :location)
   end
 
   def user_avatar_params
