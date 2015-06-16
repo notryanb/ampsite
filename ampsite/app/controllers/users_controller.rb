@@ -26,26 +26,35 @@ class UsersController < ApplicationController
     render 'show'
   end
 
-  # POST Updates
-  def update
-  end
-  
 
 
   # GET Editing user account info
   def edit
     render 'edit'
   end
-
+  
+  # POST Updates
+  def update
+    @user = User.find_by(id: params[:id])
+    if @user.update_attributes(user_avatar_params)
+      render 'show'
+    else
+      Rails.logger.info(@user.errors.messages.inspect)
+      render 'show'
+    end
+  end
+  
 
   def avatar
+    @user = current_user
     render 'avatar'
   end
 
   def edit_avatar
-    p " HIT THE AVATAR UPLOAD ROUTE------------------------"
-    render 'new'
+
   end
+
+
 
   def signature
     render 'signature'
@@ -53,6 +62,8 @@ class UsersController < ApplicationController
 
   def edit_signature
   end
+
+
 
   def profile
     render 'profile'
@@ -69,8 +80,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, 
                                  :email, 
                                  :password, 
-                                 :password_confirmation,
-                                 :avatar)
+                                 :password_confirmation)
+  end
+
+  def user_avatar_params
+    params.require(:user).permit(:avatar)
   end
 
 

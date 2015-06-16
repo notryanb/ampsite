@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20150615211419) do
     t.string   "email",                               null: false
     t.string   "username",                            null: false
     t.string   "password_digest",                     null: false
-    t.string   "avatar_url"
     t.string   "location"
     t.boolean  "show_email",          default: false
     t.string   "signature"
