@@ -19,6 +19,14 @@
     </div>
   </td>
   
-  <td class="td-content"><%= comment.content %></td>
+  <td class="td-content">
+    <div><%= comment.content %><div>
+      <% if comment.user.signature %>
+        <div class="sig-div"></div>
+        <div class="user-signature">
+          <%= comment.user.signature %>
+        </div>
+      <% end %>
+  </td>
 </tr>
 <% end %>
