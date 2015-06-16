@@ -26,10 +26,9 @@ class UsersController < ApplicationController
     render 'show'
   end
 
-
-
   # GET Editing user account info
   def edit
+    @user = current_user
     render 'edit'
   end
   
@@ -70,11 +69,5 @@ class UsersController < ApplicationController
                                  :avatar,
                                  :location)
   end
-
-  def user_avatar_params
-    params.require(:user).permit(:avatar)
-  end
-
-
 
 end
