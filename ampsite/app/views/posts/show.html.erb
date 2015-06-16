@@ -27,7 +27,11 @@
       </tr>
 
       <tr>
-        <td class="user-info">Posts: <%= @post.user.posts.count %></td>
+        <td class="user-info">
+          <% if @post.user.has_avatar? %>
+            <%= image_tag @post.user.avatar.url(:thumb) %> 
+          <% end %>
+          Posts: <%= @post.user.post_and_comment_count %></td>
         <td><%= @post.content %></th>
       </tr>
 

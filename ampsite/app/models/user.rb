@@ -21,4 +21,16 @@ class User < ActiveRecord::Base
   validates_length_of :password, :within => 8..20, if: :password
   validates_confirmation_of :password, if: :password
 
+  def has_avatar?
+    if self.avatar.url != "/avatars/original/missing.png" 
+      return true
+    else
+      return false
+    end
+  end
+
+  def post_and_comment_count
+    self.posts.count + self.comments.count
+  end
+
 end

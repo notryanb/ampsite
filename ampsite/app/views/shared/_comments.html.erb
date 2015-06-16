@@ -1,13 +1,17 @@
 <% @comments.each do |comment| %>
 <tr>
-  <th class="table-subheader"><%= @post.user.username %></th>
+  <th class="table-subheader"><%= comment.user.username %></th>
   <th class="table-subheader">Subject: <%= @post.title %>  
-    <div class="right">Posted: <%= @post.created_at.strftime("%b . %d . %Y") %>
+    <div class="right">Posted: <%= comment.created_at.strftime("%b . %d . %Y") %>
     </div>
   </th>
 </tr>
 <tr>
-  <td class="user-info">Posts: <%= comment.user.posts.count %></td>
-  <td><%= comment.content %></td>
+  <td class="user-info">
+    <% if comment.user.avatar.url != "/avatars/original/missing.png" %>
+      <%= image_tag comment.user.avatar.url(:thumb) %> 
+    <% end %>
+    Posts: <%= comment.user.post_and_comment_count %></td>
+  <td class="td-content"><%= comment.content %></td>
 </tr>
 <% end %>
