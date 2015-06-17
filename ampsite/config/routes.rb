@@ -81,6 +81,10 @@ Rails.application.routes.draw do
   end
 
   get '/tubes' => 'tubes#index'
+  get '/diodes' => 'tubes#diodes'
+  get '/triodes' => 'tubes#triodes'
+  get '/pentodes' => 'tubes#pentodes'
+
   
 
 

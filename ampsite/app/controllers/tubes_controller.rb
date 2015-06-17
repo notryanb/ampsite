@@ -4,4 +4,16 @@ class TubesController < ApplicationController
       render 'index'
     end
 
+    def diode
+      render 'diode'
+    end
+
+    def triode
+      render 'triode'
+    end
+
+    def pentode 
+      render 'pentode'
+    end
+
 end

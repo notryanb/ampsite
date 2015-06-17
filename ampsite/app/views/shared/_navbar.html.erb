@@ -53,13 +53,8 @@
    
           <section class="top-bar-section">
             <ul class="left">
-              <li><a href="#">Tech Tips</a></li>
-              <li><%= link_to 'Tube Database', tubes_path %></li>
-              <li><a href="#">Amp Database</a></li>
-              <li><a href="#">Tools</a></li>
-              <li><%= link_to 'Forum', topics_path %></li>
+              <%= render 'shared/navlinks' %>
             </ul>
-
           </section>
         </nav>
       </div>
