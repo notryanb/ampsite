@@ -1,4 +1,4 @@
-class Triode < ActiveRecord::Migration
+class Triodes < ActiveRecord::Migration
   def change
     create_table :triodes do |t|
       t.string :identifier, null: false

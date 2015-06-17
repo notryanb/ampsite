@@ -79,6 +79,8 @@ Rails.application.routes.draw do
   resources :articles do
     resources :replies
   end
+
+  get '/tubes' => 'tubes#index'
   
 
 

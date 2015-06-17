@@ -11,15 +11,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617170116) do
+ActiveRecord::Schema.define(version: 20150617184850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ampmodels", force: :cascade do |t|
+    t.integer  "manufacturer_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "post_id",    null: false
     t.string   "content",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "datasheets", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "tube_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "diodes", force: :cascade do |t|
+    t.string   "identifier",               null: false
+    t.string   "classification",           null: false
+    t.string   "filament_voltage",         null: false
+    t.string   "filament_current",         null: false
+    t.string   "max_peak_inverse_voltage", null: false
+    t.string   "voltage_drop",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manufacturers", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pentodes", force: :cascade do |t|
+    t.string   "identifier",            null: false
+    t.string   "classification",        null: false
+    t.integer  "filament_voltage",      null: false
+    t.integer  "filament_current",      null: false
+    t.integer  "max_anode_voltage",     null: false
+    t.integer  "anode_dissipation",     null: false
+    t.integer  "max_grid2_voltage",     null: false
+    t.integer  "max_grid2_dissipation", null: false
+    t.integer  "amplification_factor",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +78,13 @@ ActiveRecord::Schema.define(version: 20150617170116) do
     t.datetime "updated_at"
   end
 
+  create_table "schematics", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "ampmodel_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.string   "title",       null: false
     t.string   "description", null: false
@@ -40,8 +92,16 @@ ActiveRecord::Schema.define(version: 20150617170116) do
     t.datetime "updated_at"
   end
 
-  create_table "tubes", force: :cascade do |t|
-    t.string "type", null: false
+  create_table "triodes", force: :cascade do |t|
+    t.string   "identifier",           null: false
+    t.string   "classification",       null: false
+    t.integer  "filament_voltage",     null: false
+    t.integer  "filament_current",     null: false
+    t.integer  "max_anode_voltage",    null: false
+    t.integer  "anode_dissipation",    null: false
+    t.integer  "amplification_factor", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
