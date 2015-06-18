@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617184850) do
+ActiveRecord::Schema.define(version: 20150618140200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,13 +23,24 @@ ActiveRecord::Schema.define(version: 20150617184850) do
     t.datetime "updated_at"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.integer  "user_id",    null: false
-    t.integer  "post_id",    null: false
-    t.string   "content",    null: false
+    t.string   "title"
+    t.string   "body",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",          null: false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "content",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
 
   create_table "datasheets", force: :cascade do |t|
     t.string   "url"
@@ -41,10 +52,10 @@ ActiveRecord::Schema.define(version: 20150617184850) do
   create_table "diodes", force: :cascade do |t|
     t.string   "identifier",               null: false
     t.string   "classification",           null: false
-    t.string   "filament_voltage",         null: false
-    t.string   "filament_current",         null: false
-    t.string   "max_peak_inverse_voltage", null: false
-    t.string   "voltage_drop",             null: false
+    t.float    "filament_voltage",         null: false
+    t.float    "filament_current",         null: false
+    t.float    "max_peak_inverse_voltage", null: false
+    t.float    "voltage_drop",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,13 +69,13 @@ ActiveRecord::Schema.define(version: 20150617184850) do
   create_table "pentodes", force: :cascade do |t|
     t.string   "identifier",            null: false
     t.string   "classification",        null: false
-    t.integer  "filament_voltage",      null: false
-    t.integer  "filament_current",      null: false
-    t.integer  "max_anode_voltage",     null: false
-    t.integer  "anode_dissipation",     null: false
-    t.integer  "max_grid2_voltage",     null: false
-    t.integer  "max_grid2_dissipation", null: false
-    t.integer  "amplification_factor",  null: false
+    t.float    "filament_voltage",      null: false
+    t.float    "filament_current",      null: false
+    t.float    "max_anode_voltage",     null: false
+    t.float    "anode_dissipation",     null: false
+    t.float    "max_grid2_voltage",     null: false
+    t.float    "max_grid2_dissipation", null: false
+    t.float    "amplification_factor",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -95,11 +106,11 @@ ActiveRecord::Schema.define(version: 20150617184850) do
   create_table "triodes", force: :cascade do |t|
     t.string   "identifier",           null: false
     t.string   "classification",       null: false
-    t.integer  "filament_voltage",     null: false
-    t.integer  "filament_current",     null: false
-    t.integer  "max_anode_voltage",    null: false
-    t.integer  "anode_dissipation",    null: false
-    t.integer  "amplification_factor", null: false
+    t.float    "filament_voltage",     null: false
+    t.float    "filament_current",     null: false
+    t.float    "max_anode_voltage",    null: false
+    t.float    "anode_dissipation",    null: false
+    t.float    "amplification_factor", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -109,6 +120,7 @@ ActiveRecord::Schema.define(version: 20150617184850) do
     t.string   "username",                            null: false
     t.string   "password_digest",                     null: false
     t.string   "location"
+    t.boolean  "admin"
     t.boolean  "show_email",          default: false
     t.string   "signature"
     t.datetime "created_at",                          null: false

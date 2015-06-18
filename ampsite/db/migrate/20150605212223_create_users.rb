@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username, null: false, unique: true
       t.string :password_digest, null: false
       t.string :location
+      t.boolean :admin
       t.boolean :show_email, default: false
       t.string :signature
 

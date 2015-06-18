@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   before_action :authorize, only: [:show, :update, :edit, :avatar, :signature, :profile ]
 
+  before_action :authorize!, only: [:admin]
+
   #see all users
   def index
   end
@@ -15,7 +17,6 @@ class UsersController < ApplicationController
   # POST create User
   def create
     @user = User.new(user_params)
-
     if @user.save
       redirect_to '/'
     else
@@ -40,7 +41,6 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       render 'show'
     else
-      Rails.logger.info(@user.errors.messages.inspect)
       render 'show'
     end
   end
@@ -59,6 +59,10 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     render 'profile'
+  end
+
+  def admin
+    render 'admin'
   end
 
   private
