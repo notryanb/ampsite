@@ -1,6 +1,9 @@
-class PentodesController < ApplicationController
+class TetrodesController < ApplicationController
 
   def new
+    @tetrode = Tetrode.new
+    @tetrode_fields = @tetrode.class
+    render 'new'
   end
 
   def create
