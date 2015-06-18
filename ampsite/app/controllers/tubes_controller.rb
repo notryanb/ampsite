@@ -4,20 +4,20 @@ class TubesController < ApplicationController
       render 'index'
     end
 
-    def diodes
-      render 'diode'
+    def rectifiers
+      render 'rectifier'
     end
 
-    def triodes
+    def preamps
       @triodes = Triode.all
-      render 'triode'
+      render 'preamps'
     end
 
-    def triode
+    def preamp
       @triode = Triode.find_by(params[:id])
-      render 'triode_show'
+      render 'preamp_show'
     end
-    
+
     def pentodes
       render 'pentode'
     end

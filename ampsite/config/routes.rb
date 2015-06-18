@@ -78,14 +78,20 @@ Rails.application.routes.draw do
   end
 
   resources :articles do
-    resources :replies
+    resources :comments
   end
 
+  resources :diodes, only: [:new, :create, :update, :destroy]
+  resources :triodes, only: [:new, :create, :update, :destroy]
+  resources :triodepentodes, only: [:new, :create, :update, :destroy]
+  resources :tetrodes, only: [:new, :create, :update, :destroy]
+  resources :pentodes, only: [:new, :create, :update, :destroy]
+
   get '/tubes' => 'tubes#index'
-  get '/diodes' => 'tubes#diodes'
-  get '/triodes' => 'tubes#triodes'
-  get '/triode' => 'tubes#triode'
-  get '/pentodes' => 'tubes#pentodes'
+  get '/rectifiers' => 'tubes#rectifiers'
+  get '/preamps' => 'tubes#preamps'
+  get '/preamp' => 'tubes#preamp'
+  get '/powers' => 'tubes#powers'
 
   
 
