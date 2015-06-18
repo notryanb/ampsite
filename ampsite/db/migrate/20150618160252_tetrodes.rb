@@ -1,6 +1,7 @@
-class Pentodes < ActiveRecord::Migration
+class Tetrodes < ActiveRecord::Migration
   def change
-    create_table :pentodes do |t|
+    create_table :tetrodes do |t|
+      t.string :identifier, null: false
       t.float :max_anode_voltage, null: false
       t.float :max_grid2_voltage, null: false
       t.float :max_anode_dissipation, null: false

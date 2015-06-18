@@ -50,7 +50,6 @@ end
 
 
 Triode.create(identifier: "12AX7",
-              classification: "triode",
               filament_voltage: 6.3,
               filament_current: 0.3,
               max_anode_voltage: 300,
