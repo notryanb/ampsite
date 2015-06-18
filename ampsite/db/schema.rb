@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618140200) do
+ActiveRecord::Schema.define(version: 20150618160252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,11 +51,14 @@ ActiveRecord::Schema.define(version: 20150618140200) do
 
   create_table "diodes", force: :cascade do |t|
     t.string   "identifier",               null: false
-    t.string   "classification",           null: false
-    t.float    "filament_voltage",         null: false
-    t.float    "filament_current",         null: false
     t.float    "max_peak_inverse_voltage", null: false
     t.float    "voltage_drop",             null: false
+    t.string   "rectifier_class",          null: false
+    t.float    "filament_voltage",         null: false
+    t.float    "filament_current",         null: false
+    t.string   "pinout"
+    t.string   "description"
+    t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,15 +70,16 @@ ActiveRecord::Schema.define(version: 20150618140200) do
   end
 
   create_table "pentodes", force: :cascade do |t|
-    t.string   "identifier",            null: false
-    t.string   "classification",        null: false
+    t.float    "max_anode_voltage",     null: false
+    t.float    "max_grid2_voltage",     null: false
+    t.float    "max_anode_dissipation", null: false
+    t.float    "max_grid2_dissipation", null: false
+    t.float    "max_cathode_current",   null: false
     t.float    "filament_voltage",      null: false
     t.float    "filament_current",      null: false
-    t.float    "max_anode_voltage",     null: false
-    t.float    "anode_dissipation",     null: false
-    t.float    "max_grid2_voltage",     null: false
-    t.float    "max_grid2_dissipation", null: false
-    t.float    "amplification_factor",  null: false
+    t.string   "pinout"
+    t.string   "description"
+    t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,6 +100,22 @@ ActiveRecord::Schema.define(version: 20150618140200) do
     t.datetime "updated_at"
   end
 
+  create_table "tetrodes", force: :cascade do |t|
+    t.string   "identifier",            null: false
+    t.float    "max_anode_voltage",     null: false
+    t.float    "max_grid2_voltage",     null: false
+    t.float    "max_anode_dissipation", null: false
+    t.float    "max_grid2_dissipation", null: false
+    t.float    "max_cathode_current",   null: false
+    t.float    "filament_voltage",      null: false
+    t.float    "filament_current",      null: false
+    t.string   "pinout"
+    t.string   "description"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.string   "title",       null: false
     t.string   "description", null: false
@@ -103,14 +123,34 @@ ActiveRecord::Schema.define(version: 20150618140200) do
     t.datetime "updated_at"
   end
 
+  create_table "triodepentodes", force: :cascade do |t|
+    t.string   "identifier",                    null: false
+    t.float    "max_triode_anode_voltage",      null: false
+    t.float    "max_pentode_anode_voltage",     null: false
+    t.float    "max_pentode_grid2_voltage",     null: false
+    t.float    "max_triode_anode_dissipation",  null: false
+    t.float    "max_pentode_anode_dissipation", null: false
+    t.float    "filament_voltage",              null: false
+    t.float    "filament_current",              null: false
+    t.string   "pinout"
+    t.string   "description"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "triodes", force: :cascade do |t|
-    t.string   "identifier",           null: false
-    t.string   "classification",       null: false
-    t.float    "filament_voltage",     null: false
-    t.float    "filament_current",     null: false
-    t.float    "max_anode_voltage",    null: false
-    t.float    "anode_dissipation",    null: false
-    t.float    "amplification_factor", null: false
+    t.string   "identifier",                   null: false
+    t.float    "max_anode_voltage"
+    t.float    "max_filament_cathode_voltage"
+    t.float    "max_cathode_current"
+    t.float    "anode_dissipation"
+    t.float    "amplification_factor"
+    t.float    "filament_voltage"
+    t.float    "filament_current"
+    t.string   "pinout"
+    t.string   "description"
+    t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

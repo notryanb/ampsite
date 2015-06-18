@@ -13,6 +13,11 @@ class TubesController < ApplicationController
       render 'triode'
     end
 
+    def triode
+      @triode = Triode.find_by(params[:id])
+      render 'triode_show'
+    end
+    
     def pentodes
       render 'pentode'
     end
