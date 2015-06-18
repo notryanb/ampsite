@@ -5,7 +5,8 @@ class TubesController < ApplicationController
     end
 
     def rectifiers
-      render 'rectifier'
+      @diodes = Diode.all
+      render 'rectifiers'
     end
 
     def preamps
