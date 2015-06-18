@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="large-12 columns">
+
+    <%= form_for @triode do |f| %>
+      <% @fields.columns.each do |column| %>
+        <% if database_important_columns?(column.name) %>
+            <%= f.label column.name.to_sym %>
+            <%= f.text_field column.name.to_sym %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
