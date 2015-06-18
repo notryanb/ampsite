@@ -6,7 +6,9 @@
         <%= form_for ([:topic, :post, @comment]) do |f| %>
 
           <%= f.hidden_field :user_id, :value => current_user.id%>
-          <%= f.hidden_field :post_id, :value => @post_id%>
+          <%= f.hidden_field :commentable_id, :value => @post_id%>
+          <%= f.hidden_field :commentable_type, :value => 'Post' %>
+          
 
           <%= f.label :comment %>
           <%= f.text_area :content %>

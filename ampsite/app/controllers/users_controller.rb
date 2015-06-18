@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   # POST create User
   def create
     @user = User.new(user_params)
-
     if @user.save
       redirect_to '/'
     else
@@ -42,7 +41,6 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       render 'show'
     else
-      Rails.logger.info(@user.errors.messages.inspect)
       render 'show'
     end
   end

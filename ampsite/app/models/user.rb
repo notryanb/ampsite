@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def post_and_comment_count
-    self.posts.count + self.comments.count
+    self.posts.count + self.comments.where(commentable_type: 'Post').count
   end
 
 end
