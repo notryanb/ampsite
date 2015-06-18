@@ -2,7 +2,7 @@ class TriodesController < ApplicationController
 
   def new
     @triode = Triode.new
-    @fields = @triode.class
+    @triode_fields = @triode.class
     render 'new'
   end
 
