@@ -3,4 +3,7 @@
     <li><%= link_to 'Edit Signature', signature_path %></li>
     <li><%= link_to 'Edit Profile', profile_path %></li>
     <li><%= link_to 'Account Settings', edit_user_path(current_user) %></li>
+    <% if current_user.admin? %>
+      <li><%= link_to 'Admin Settings', admin_path %></li>
+    <% end %>
   </ul>

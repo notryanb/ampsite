@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   before_action :authorize, only: [:show, :update, :edit, :avatar, :signature, :profile ]
 
+  before_action :authorize!, only: [:admin]
+
   #see all users
   def index
   end
@@ -59,6 +61,10 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     render 'profile'
+  end
+
+  def admin
+    render 'admin'
   end
 
   private

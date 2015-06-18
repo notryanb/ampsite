@@ -58,8 +58,9 @@ Rails.application.routes.draw do
   
   resources :users
   get 'avatar' => 'users#avatar'
-  get 'signature' => "users#signature"
-  get 'profile' => "users#profile"
+  get 'signature' => 'users#signature'
+  get 'profile' => 'users#profile'
+  get 'admin' => 'users#admin'
 
   resources :sessions
 
