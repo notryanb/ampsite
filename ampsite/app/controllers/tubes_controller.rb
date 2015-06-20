@@ -20,6 +20,7 @@ class TubesController < ApplicationController
     end
 
     def pentodes
+      @pentodes = Pentodes.all
       render 'pentode'
     end
 

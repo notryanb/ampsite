@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="large-12 columns">
+
+        <table class="posts large-12 columns">
+          <caption>Rectifiers</caption>
+          <tr>
+            <th scope="column" class="topic-header">Identifier</th>
+            <th scope="column" class="topic-header">Va Max</th>
+            <th scope="column" class="topic-header">Vg2 Max</th>
+            <th scope="column" class="topic-header">Vh</th>
+            <th scope="column" class="topic-header">Ih</th>
+          </tr>
+
+          <% @pentodes.each do |tube| %>
+          <tr>
+            <td><%= link_to tube.identifier, pentode_path(tube.id), class: "tube-link" %></td>
+            <td><%= tube.max_anode_voltage %></td>
+            <td><%= tube.max_grid2_voltage %></td>
+            <td><%= tube.filament_voltage %></td>
+            <td><%= tube.filament_current %></td>
+
+          </tr>
+          <% end %>
+
+        </table>
+
+    </div>
+</div>
