@@ -51,11 +51,11 @@ ActiveRecord::Schema.define(version: 20150618160252) do
 
   create_table "diodes", force: :cascade do |t|
     t.string   "identifier",               null: false
-    t.float    "max_peak_inverse_voltage", null: false
-    t.float    "voltage_drop",             null: false
-    t.string   "rectifier_class",          null: false
-    t.float    "filament_voltage",         null: false
-    t.float    "filament_current",         null: false
+    t.float    "max_peak_inverse_voltage"
+    t.float    "voltage_drop"
+    t.string   "rectifier_class"
+    t.float    "filament_voltage"
+    t.float    "filament_current"
     t.string   "pinout"
     t.string   "description"
     t.string   "notes"
@@ -70,13 +70,14 @@ ActiveRecord::Schema.define(version: 20150618160252) do
   end
 
   create_table "pentodes", force: :cascade do |t|
-    t.float    "max_anode_voltage",     null: false
-    t.float    "max_grid2_voltage",     null: false
-    t.float    "max_anode_dissipation", null: false
-    t.float    "max_grid2_dissipation", null: false
-    t.float    "max_cathode_current",   null: false
-    t.float    "filament_voltage",      null: false
-    t.float    "filament_current",      null: false
+    t.string   "identifier"
+    t.float    "max_anode_voltage"
+    t.float    "max_grid2_voltage"
+    t.float    "max_anode_dissipation"
+    t.float    "max_grid2_dissipation"
+    t.float    "max_cathode_current"
+    t.float    "filament_voltage"
+    t.float    "filament_current"
     t.string   "pinout"
     t.string   "description"
     t.string   "notes"
