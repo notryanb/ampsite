@@ -21,7 +21,7 @@ class TriodesController < ApplicationController
   def destroy
     @triode = Triode.find_by(params[:id])
     @triode.destroy
-    redirect 'preamps'
+    render 'preamps'
   end
 
   private
