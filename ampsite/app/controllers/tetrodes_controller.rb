@@ -13,6 +13,9 @@ class TetrodesController < ApplicationController
   end
 
   def destroy
+    @tetrode = Tetrode.find_by(params[:id])
+    @tetrode.destroy
+    render 'powers'
   end
 
 end

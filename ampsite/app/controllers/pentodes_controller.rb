@@ -19,6 +19,9 @@ class PentodesController < ApplicationController
   end
 
   def destroy
+    @pentode = Pentode.find_by(params[:id])
+    @pentode.destroy
+    render 'powers'
   end
 
   private

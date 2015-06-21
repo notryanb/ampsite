@@ -19,6 +19,9 @@ class DiodesController < ApplicationController
   end
 
   def destroy
+    @diode = Diode.find_by(params[:id])
+    @diode.destroy
+    render 'rectifiers'
   end
 
 private
