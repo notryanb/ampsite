@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       render 'show'
     else
-      render 'show'
+      render action: :edit
     end
   end
   

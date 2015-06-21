@@ -81,11 +81,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :diodes, only: [:new, :create, :edit, :update, :destroy]
-  resources :triodes, only: [:new, :create, :edit, :update, :destroy]
-  resources :triodepentodes, only: [:new, :create, :edit, :update, :destroy]
-  resources :tetrodes, only: [:new, :create, :edit, :update, :destroy]
-  resources :pentodes, only: [:new, :create, :edit, :update, :destroy]
+  resources :diodes
+  resources :triodes
+  resources :triodepentodes
+  resources :tetrodes
+  resources :pentodes
 
   get '/tubes' => 'tubes#index'
   get '/rectifiers' => 'tubes#rectifiers'

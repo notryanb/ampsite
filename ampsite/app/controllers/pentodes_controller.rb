@@ -15,10 +15,23 @@ class PentodesController < ApplicationController
     end
   end
 
+  def show
+    @pentode = Pentode.find_by(params[:id])
+    render 'show'
+  end
+
   def edit
+    @pentode = Pentode.find_by(params[:id])
+    render 'edit'
   end
 
   def update
+    @pentode = Pentode.find_by(params[:id])
+    if @pentode.update_attributes(pentode_params)
+      render 'show'
+    else
+      render action: :edit
+    end
   end
 
   def destroy
