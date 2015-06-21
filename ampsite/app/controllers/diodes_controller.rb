@@ -15,7 +15,22 @@ class DiodesController < ApplicationController
     end
   end
 
+  def show
+    @diode = Diode.find_by(params[:id])
+    render 'show'
+  end
+
+  def edit
+    @diode = Diode.find_by(params[:id])
+    render 'edit'
+  end
+
   def update
+    @diode = Diode.find_by(params[:id])
+    if @diode.update_attributes(diode_params)
+      render 'show'
+    else
+      render action: :edit
   end
 
   def destroy
