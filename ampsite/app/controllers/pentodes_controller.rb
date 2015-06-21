@@ -44,13 +44,13 @@ class PentodesController < ApplicationController
 
   def pentode_params
     params.require(:pentode).permit(:identifier,
-                                  :max_anode_voltage
-                                  :max_grid2_voltage
-                                  :max_anode_dissipation
-                                  :max_grid2_dissipation
-                                  :max_cathode_current
-                                  :filament_voltage
-                                  :filament_current
+                                  :max_anode_voltage,
+                                  :max_grid2_voltage,
+                                  :max_anode_dissipation,
+                                  :max_grid2_dissipation,
+                                  :max_cathode_current,
+                                  :filament_voltage,
+                                  :filament_current,
                                   :pinout,
                                   :description,
                                   :notes)
