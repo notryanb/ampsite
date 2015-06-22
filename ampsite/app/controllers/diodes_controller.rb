@@ -31,6 +31,7 @@ class DiodesController < ApplicationController
       render 'show'
     else
       render action: :edit
+    end
   end
 
   def destroy

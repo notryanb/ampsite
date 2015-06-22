@@ -1,5 +1,22 @@
-<% if current_user.admin? %>
-  <p>You're an admin</p>
-<% else %>
-  <p> How did you get in here?!?</p>
-<% end %>
+<div class="row">
+  <div class="columns small-12">
+
+    <div class="columns small-3 dash-menu">
+          <%= render 'usernav' %>
+    </div>
+
+    <div class="columns small-8 dash-focus" >
+     <div class="row">
+      <ul> 
+        <li><%= link_to 'Add Diode', new_diode_path %></li>
+        <li><%= link_to 'Add Triode', new_triode_path %></li>
+        <li><%= link_to 'Add Triode-Pentode', new_triodepentode_path %></li>
+        <li><%= link_to 'Add Tetrode', new_tetrode_path %></li>
+        <li><%= link_to 'Add Pentode', new_pentode_path %></li>
+      </ul>
+    </div>
+  </div>
+
+
+  </div>
+</div>

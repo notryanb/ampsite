@@ -1,5 +1,7 @@
 class TetrodesController < ApplicationController
 
+  before_action :authorize!
+
   def new
     @tetrode = Tetrode.new
     @tetrode_fields = @tetrode.class
