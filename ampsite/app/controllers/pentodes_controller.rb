@@ -8,8 +8,8 @@ class PentodesController < ApplicationController
 
   def create
     @pentode = Pentode.new(pentode_params)
-    if @triode.save
-      redirect_to preamps_path
+    if @pentode.save
+      redirect_to powers_path
     else
       render action: :new
     end
