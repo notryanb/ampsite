@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150618160252) do
     t.float    "max_peak_inverse_voltage"
     t.float    "voltage_drop"
     t.string   "rectifier_class"
+    t.float    "rms_anode_to_anode"
     t.float    "filament_voltage"
     t.float    "filament_current"
     t.string   "pinout"
@@ -102,14 +103,14 @@ ActiveRecord::Schema.define(version: 20150618160252) do
   end
 
   create_table "tetrodes", force: :cascade do |t|
-    t.string   "identifier",            null: false
-    t.float    "max_anode_voltage",     null: false
-    t.float    "max_grid2_voltage",     null: false
-    t.float    "max_anode_dissipation", null: false
-    t.float    "max_grid2_dissipation", null: false
-    t.float    "max_cathode_current",   null: false
-    t.float    "filament_voltage",      null: false
-    t.float    "filament_current",      null: false
+    t.string   "identifier"
+    t.float    "max_anode_voltage"
+    t.float    "max_grid2_voltage"
+    t.float    "max_anode_dissipation"
+    t.float    "max_grid2_dissipation"
+    t.float    "max_cathode_current"
+    t.float    "filament_voltage"
+    t.float    "filament_current"
     t.string   "pinout"
     t.string   "description"
     t.string   "notes"
@@ -125,14 +126,14 @@ ActiveRecord::Schema.define(version: 20150618160252) do
   end
 
   create_table "triodepentodes", force: :cascade do |t|
-    t.string   "identifier",                    null: false
-    t.float    "max_triode_anode_voltage",      null: false
-    t.float    "max_pentode_anode_voltage",     null: false
-    t.float    "max_pentode_grid2_voltage",     null: false
-    t.float    "max_triode_anode_dissipation",  null: false
-    t.float    "max_pentode_anode_dissipation", null: false
-    t.float    "filament_voltage",              null: false
-    t.float    "filament_current",              null: false
+    t.string   "identifier"
+    t.float    "max_triode_anode_voltage"
+    t.float    "max_pentode_anode_voltage"
+    t.float    "max_pentode_grid2_voltage"
+    t.float    "max_triode_anode_dissipation"
+    t.float    "max_pentode_anode_dissipation"
+    t.float    "filament_voltage"
+    t.float    "filament_current"
     t.string   "pinout"
     t.string   "description"
     t.string   "notes"

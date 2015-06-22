@@ -1,5 +1,7 @@
 class TriodepentodesController < ApplicationController
 
+  before_action :authorize!, only: [:new, :create, :update, :edit, :destroy]
+
   def new
     @triodepentode = Triodepentode.new
     @triodepentode_fields = @triodepentode.class
@@ -9,7 +11,7 @@ class TriodepentodesController < ApplicationController
   def create
     @triodepentode = Triodepentode.new(triodepentode_params)
     if @triodepentode.save
-      redirect_to 'preamps'
+      redirect_to preamps_path
     else
       render action: :new
     end

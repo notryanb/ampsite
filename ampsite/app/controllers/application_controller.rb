@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :authorize
   helper_method :authorize!
+  helper_method :authorize_options
   
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -16,7 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize!
-    redirect_to '/' unless current_user.admin?
+    redirect_to '/' unless current_user && current_user.admin?
+  end
+
+  def authorize_options
+    return true if current_user && current_user.admin?
   end
 
 

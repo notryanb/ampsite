@@ -1,5 +1,7 @@
 class TriodesController < ApplicationController
 
+  before_action :authorize!, only: [:new, :create, :update, :edit, :destroy]
+
   def new
     @triode = Triode.new
     @triode_fields = @triode.class
