@@ -18,17 +18,17 @@ class TriodepentodesController < ApplicationController
   end
 
   def show
-    @triodepentode = Triodepentode.find_by(params[:id])
+    @triodepentode = Triodepentode.find_by(id: params[:id])
     render 'show'
   end
 
   def edit
-    @triodepentode = Triodepentode.find_by(params[:id])
+    @triodepentode = Triodepentode.find_by(id: params[:id])
     render 'edit'
   end
 
   def update
-    @triodepentode = Triodepentode.find_by(params[:id])
+    @triodepentode = Triodepentode.find_by(id: params[:id])
     if @triodepentode.update_attributes(triodepentode_params)
       render 'show'
     else
