@@ -5,16 +5,25 @@
           <caption>Pentodes</caption>
           <tr>
             <th scope="column" class="topic-header">Identifier</th>
+            <th scope="column" class="topic-header">Type</th>
             <th scope="column" class="topic-header">Va Max</th>
             <th scope="column" class="topic-header">Pa Max</th>
             <th scope="column" class="topic-header">Vh</th>
             <th scope="column" class="topic-header">Ih</th>
           </tr>
 
-          <% if @pentodes != nil %>
-            <% @pentodes.each do |tube| %>
+
+            <% @powers.each do |tube| %>
             <tr>
-              <td><%= link_to tube.identifier, pentode_path(tube.id), class: "tube-link" %></td>
+              <td>
+
+                <% if tube.class == "Pentode" %>
+                  <%= link_to tube.identifier, pentode_path(tube.id), class: "tube-link" %>
+                  <% else %>
+                  <%= link_to tube.identifier, tetrode_path(tube.id), class: "tube-link" %>
+                  <% end %>
+              </td>
+              <td><%= tube.class %></td>
               <td><%= tube.max_anode_voltage %></td>
               <td><%= tube.max_anode_dissipation %></td>
               <td><%= tube.filament_voltage %></td>
@@ -22,7 +31,6 @@
 
             </tr>
             <% end %>
-          <% end %>
 
         </table>
 

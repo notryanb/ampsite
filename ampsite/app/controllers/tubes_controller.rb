@@ -10,7 +10,7 @@ class TubesController < ApplicationController
     end
 
     def preamps
-      @triodes = Triode.all
+      @preamps = Triode.all + Triodepentode.all
       render 'preamps'
     end
 
@@ -19,9 +19,9 @@ class TubesController < ApplicationController
       render 'preamp_show'
     end
 
-    def pentodes
-      @pentodes = Pentode.all
-      render 'pentode'
+    def powers
+      @powers = Tetrode.all + Pentode.all
+      render 'powers'
     end
 
 end

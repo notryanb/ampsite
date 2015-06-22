@@ -11,13 +11,11 @@
             <th scope="column" class="topic-header">mu</th>
           </tr>
 
-          <% @triodes.each do |tube| %>
+          <% @preamps.each do |tube| %>
           <tr>
             <td><%= link_to tube.identifier, triode_path(tube.id), class: "tube-link" %></td>
-            <td><%= tube.max_anode_voltage %></td>
-            <td><%= tube.max_cathode_current %></td>
-            <td><%= tube.anode_dissipation %></td>
-            <td><%= tube.amplification_factor %></td>
+            <td><%= tube.class %></td>
+
 
           </tr>
           <% end %>
