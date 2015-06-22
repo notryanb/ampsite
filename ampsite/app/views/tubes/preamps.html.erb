@@ -2,19 +2,20 @@
     <div class="large-12 columns">
 
         <table class="posts large-12 columns">
-          <caption>Welcome to the Ampsite Discussion Forum Index.</caption>
+
           <tr>
             <th scope="column" class="topic-header">Identifier</th>
-            <th scope="column" class="topic-header">Va Max</th>
-            <th scope="column" class="topic-header">Ik Max</th>
-            <th scope="column" class="topic-header">Pa</th>
-            <th scope="column" class="topic-header">mu</th>
+            <th scope="column" class="topic-header">Class</th>
+            <th scope="column" class="topic-header">Vh</th>
+            <th scope="column" class="topic-header">Ih</th>
           </tr>
 
           <% @preamps.each do |tube| %>
           <tr>
             <td><%= link_to tube.identifier, triode_path(tube.id), class: "tube-link" %></td>
-            <td><%= tube.class %></td>
+            <td><%= tube.type %></td>
+            <td><%= tube.filament_voltage %></td>
+            <td><%= tube.filament_current %></td>
 
 
           </tr>

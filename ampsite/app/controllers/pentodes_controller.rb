@@ -1,5 +1,7 @@
 class PentodesController < ApplicationController
 
+  before_action :authorize!, only: [:new, :create, :update, :edit, :destroy]
+
   def new
     @pentode = Pentode.new
     @pentode_fields = @pentode.class

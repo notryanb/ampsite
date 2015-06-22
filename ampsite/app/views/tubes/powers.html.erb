@@ -16,12 +16,11 @@
             <% @powers.each do |tube| %>
             <tr>
               <td>
-
-                <% if tube.class == "Pentode" %>
-                  <%= link_to tube.identifier, pentode_path(tube.id), class: "tube-link" %>
-                  <% else %>
-                  <%= link_to tube.identifier, tetrode_path(tube.id), class: "tube-link" %>
-                  <% end %>
+                <% if tube.class == Pentode %>
+                    <%= link_to tube.identifier, pentode_path(tube.id), class: "tube-link" %>
+                <% else %>
+                    <%= link_to tube.identifier, tetrode_path(tube.id), class: "tube-link" %>
+                <% end %>
               </td>
               <td><%= tube.class %></td>
               <td><%= tube.max_anode_voltage %></td>

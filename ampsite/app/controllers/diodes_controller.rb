@@ -1,5 +1,7 @@
 class DiodesController < ApplicationController
 
+  before_action :authorize!, only: [:new, :create, :update, :edit, :destroy]
+  
   def new
     @diode = Diode.new
     @diode_fields = @diode.class
@@ -16,17 +18,17 @@ class DiodesController < ApplicationController
   end
 
   def show
-    @diode = Diode.find_by(params[:id])
+    @diode = Diode.find_by(id: params[:id])
     render 'show'
   end
 
   def edit
-    @diode = Diode.find_by(params[:id])
+    @diode = Diode.find_by(id: params[:id])
     render 'edit'
   end
 
   def update
-    @diode = Diode.find_by(params[:id])
+    @diode = Diode.find_by(id: params[:id])
     if @diode.update_attributes(diode_params)
       render 'show'
     else

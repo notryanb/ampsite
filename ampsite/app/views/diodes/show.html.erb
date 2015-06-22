@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="large-12 columns">
+
+      <% if authorize_options %>
+          <div class="inline-list">
+            <li>Edit</li>
+            <li>Delete</li>
+          </div>
+      <% end %>
+
+      <table class="posts large-12 columns">
+        <tr>
+          <th scope="column" class="topic-header">Identifier</th>
+          <th scope="column" class="topic-header">Class</th>
+          <th scope="column" class="topic-header">PIV</th>
+          <th scope="column" class="topic-header">Voltage Drop</th>
+          <th scope="column" class="topic-header">RMS Anode-Anode</th>
+        </tr>
+
+        <tr>
+          <td><%= @diode.identifier %></td>
+          <td><%= @diode.rectifier_class %></td>
+          <td><%= @diode.max_peak_inverse_voltage %></td>
+          <td><%= @diode.voltage_drop %></td>
+          <td><%= @diode.rms_anode_to_anode %></td>
+        </tr>
+
+
+      </table>
+
+    </div>
+</div>

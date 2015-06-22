@@ -1,6 +1,6 @@
 class TetrodesController < ApplicationController
 
-  before_action :authorize!
+  before_action :authorize!, only: [:new, :create, :update, :edit, :destroy]
 
   def new
     @tetrode = Tetrode.new
