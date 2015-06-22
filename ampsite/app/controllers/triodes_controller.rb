@@ -17,6 +17,14 @@ class TriodesController < ApplicationController
     end
   end
 
+  def show
+    @triode = Triode.find_by(id: params[:id])
+    render 'show'
+  end
+
+  def edit
+  end
+
   def update
   end
 
