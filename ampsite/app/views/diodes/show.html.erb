@@ -1,12 +1,9 @@
 <div class="row">
     <div class="large-12 columns">
 
-      <% if authorize_options %>
-          <div class="inline-list">
-            <li>Edit</li>
-            <li>Delete</li>
-          </div>
-      <% end %>
+      <div class="row">
+        <%= render 'shared/tubeadmin' %>
+      </div>
 
       <table class="posts large-12 columns">
         <tr>

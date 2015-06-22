@@ -18,17 +18,17 @@ class PentodesController < ApplicationController
   end
 
   def show
-    @pentode = Pentode.find_by(params[:id])
+    @pentode = Pentode.find_by(id: params[:id])
     render 'show'
   end
 
   def edit
-    @pentode = Pentode.find_by(params[:id])
+    @pentode = Pentode.find_by(id: params[:id])
     render 'edit'
   end
 
   def update
-    @pentode = Pentode.find_by(params[:id])
+    @pentode = Pentode.find_by(id: params[:id])
     if @pentode.update_attributes(pentode_params)
       render 'show'
     else
@@ -37,7 +37,7 @@ class PentodesController < ApplicationController
   end
 
   def destroy
-    @pentode = Pentode.find_by(params[:id])
+    @pentode = Pentode.find_by(id: params[:id])
     @pentode.destroy
     render 'powers'
   end

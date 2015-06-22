@@ -18,17 +18,17 @@ class TetrodesController < ApplicationController
   end
 
   def show
-    @tetrode = Tetrode.find_by(params[:id])
+    @tetrode = Tetrode.find_by(id: params[:id])
     render 'show'
   end
 
   def edit
-    @tetrode = Tetrode.find_by(params[:id])
+    @tetrode = Tetrode.find_by(id: params[:id])
     render 'edit'
   end
 
   def update
-    @tetrode = Tetrode.find_by(params[:id])
+    @tetrode = Tetrode.find_by(id: params[:id])
     if @tetrode.update_attributes(tetrode_params)
       render 'show'
     else
@@ -37,7 +37,7 @@ class TetrodesController < ApplicationController
   end
 
   def destroy
-    @tetrode = Tetrode.find_by(params[:id])
+    @tetrode = Tetrode.find_by(id: params[:id])
     @tetrode.destroy
     render 'powers'
   end
