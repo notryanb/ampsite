@@ -55,3 +55,15 @@ Triode.create(identifier: "12AX7",
               max_anode_voltage: 300,
               anode_dissipation: 1,
               amplification_factor: 100)
+
+Tetrode.create(identifier: "6L6GC",
+              filament_voltage: 6.3,
+              filament_current: 0.9,
+              max_anode_voltage: 500,
+              max_anode_dissipation: 30)
+
+Tetrode.create(identifier: "KT88",
+              filament_voltage: 6.3,
+              filament_current: 1.6,
+              max_anode_voltage: 660,
+              max_anode_dissipation: 42)
