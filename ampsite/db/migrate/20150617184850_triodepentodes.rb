@@ -9,7 +9,6 @@ class Triodepentodes < ActiveRecord::Migration
       t.float :max_pentode_anode_dissipation
       t.float :filament_voltage
       t.float :filament_current
-      t.string :pinout
       t.string :description
       t.string :notes
 
