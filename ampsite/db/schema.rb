@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622203754) do
+ActiveRecord::Schema.define(version: 20150623141426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,25 @@ ActiveRecord::Schema.define(version: 20150622203754) do
     t.datetime "updated_at"
     t.string   "classification"
   end
+
+  create_table "pinouts", force: :cascade do |t|
+    t.integer  "pinoutable_id"
+    t.string   "pinoutable_type"
+    t.string   "description",                    null: false
+    t.string   "pin_1",           default: "NC"
+    t.string   "pin_2",           default: "NC"
+    t.string   "pin_3",           default: "NC"
+    t.string   "pin_4",           default: "NC"
+    t.string   "pin_5",           default: "NC"
+    t.string   "pin_6",           default: "NC"
+    t.string   "pin_7",           default: "NC"
+    t.string   "pin_8",           default: "NC"
+    t.string   "pin_9",           default: "NC"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pinouts", ["pinoutable_type", "pinoutable_id"], name: "index_pinouts_on_pinoutable_type_and_pinoutable_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.integer  "topic_id",   null: false
