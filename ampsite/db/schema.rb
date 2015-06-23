@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623141426) do
+ActiveRecord::Schema.define(version: 20150623181821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,17 +87,7 @@ ActiveRecord::Schema.define(version: 20150623141426) do
   create_table "pinouts", force: :cascade do |t|
     t.integer  "pinoutable_id"
     t.string   "pinoutable_type"
-    t.string   "description",     null: false
-    t.string   "pin_1"
-    t.string   "pin_2"
-    t.string   "pin_3"
-    t.string   "pin_4"
-    t.string   "pin_5"
-    t.string   "pin_6"
-    t.string   "pin_7"
-    t.string   "pin_8"
-    t.string   "pin_9"
-    t.string   "identifier"
+    t.integer  "tubesocket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -169,6 +159,22 @@ ActiveRecord::Schema.define(version: 20150623141426) do
     t.float    "filament_current"
     t.string   "description"
     t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tubesockets", force: :cascade do |t|
+    t.string   "description", null: false
+    t.string   "pin_1"
+    t.string   "pin_2"
+    t.string   "pin_3"
+    t.string   "pin_4"
+    t.string   "pin_5"
+    t.string   "pin_6"
+    t.string   "pin_7"
+    t.string   "pin_8"
+    t.string   "pin_9"
+    t.string   "identifier"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
