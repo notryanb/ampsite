@@ -9,7 +9,6 @@ class Tetrodes < ActiveRecord::Migration
       t.float :max_cathode_current
       t.float :filament_voltage
       t.float :filament_current
-      t.string :pinout
       t.string :description
       t.string :notes
 

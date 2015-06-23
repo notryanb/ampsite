@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623141426) do
+ActiveRecord::Schema.define(version: 20150623181821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,11 +53,10 @@ ActiveRecord::Schema.define(version: 20150623141426) do
     t.string   "identifier",               null: false
     t.float    "max_peak_inverse_voltage"
     t.float    "voltage_drop"
-    t.string   "rectifier_class"
     t.float    "rms_anode_to_anode"
     t.float    "filament_voltage"
     t.float    "filament_current"
-    t.string   "pinout"
+    t.string   "rectifier_class"
     t.string   "description"
     t.string   "notes"
     t.datetime "created_at"
@@ -79,31 +78,21 @@ ActiveRecord::Schema.define(version: 20150623141426) do
     t.float    "max_cathode_current"
     t.float    "filament_voltage"
     t.float    "filament_current"
-    t.string   "pinout"
     t.string   "description"
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "classification"
   end
 
   create_table "pinouts", force: :cascade do |t|
     t.integer  "pinoutable_id"
     t.string   "pinoutable_type"
-    t.string   "description",                    null: false
-    t.string   "pin_1",           default: "NC"
-    t.string   "pin_2",           default: "NC"
-    t.string   "pin_3",           default: "NC"
-    t.string   "pin_4",           default: "NC"
-    t.string   "pin_5",           default: "NC"
-    t.string   "pin_6",           default: "NC"
-    t.string   "pin_7",           default: "NC"
-    t.string   "pin_8",           default: "NC"
-    t.string   "pin_9",           default: "NC"
+    t.integer  "tubesocket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "pinouts", ["pinoutable_id", "pinoutable_type"], name: "index_pinouts_on_pinoutable_id_and_pinoutable_type", using: :btree
   add_index "pinouts", ["pinoutable_type", "pinoutable_id"], name: "index_pinouts_on_pinoutable_type_and_pinoutable_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
@@ -131,12 +120,10 @@ ActiveRecord::Schema.define(version: 20150623141426) do
     t.float    "max_cathode_current"
     t.float    "filament_voltage"
     t.float    "filament_current"
-    t.string   "pinout"
     t.string   "description"
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "classification"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -155,7 +142,6 @@ ActiveRecord::Schema.define(version: 20150623141426) do
     t.float    "max_pentode_anode_dissipation"
     t.float    "filament_voltage"
     t.float    "filament_current"
-    t.string   "pinout"
     t.string   "description"
     t.string   "notes"
     t.datetime "created_at"
@@ -171,9 +157,24 @@ ActiveRecord::Schema.define(version: 20150623141426) do
     t.float    "amplification_factor"
     t.float    "filament_voltage"
     t.float    "filament_current"
-    t.string   "pinout"
     t.string   "description"
     t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tubesockets", force: :cascade do |t|
+    t.string   "description", null: false
+    t.string   "pin_1"
+    t.string   "pin_2"
+    t.string   "pin_3"
+    t.string   "pin_4"
+    t.string   "pin_5"
+    t.string   "pin_6"
+    t.string   "pin_7"
+    t.string   "pin_8"
+    t.string   "pin_9"
+    t.string   "identifier"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

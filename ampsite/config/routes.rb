@@ -86,6 +86,7 @@ Rails.application.routes.draw do
   resources :triodepentodes
   resources :tetrodes
   resources :pentodes
+  resources :pinouts
 
   get '/tubes' => 'tubes#index'
   get '/rectifiers' => 'tubes#rectifiers'
