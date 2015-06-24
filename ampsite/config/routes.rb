@@ -81,11 +81,41 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :diodes
-  resources :triodes
-  resources :triodepentodes
-  resources :tetrodes
-  resources :pentodes
+  resources :diodes do
+    member do
+      get 'destroy_confirm'
+      get 'add_datasheet'
+    end
+  end
+
+  resources :triodes do
+    member do
+      get 'destroy_confirm'
+      get 'add_datasheet'
+    end
+  end
+
+  resources :triodepentodes do
+    member do
+      get 'destroy_confirm'
+      get 'add_datasheet'
+    end
+  end
+
+  resources :tetrodes do
+    member do
+      get 'destroy_confirm'
+      get 'add_datasheet'
+    end
+  end
+
+  resources :pentodes do
+    member do
+      get 'destroy_confirm'
+      get 'add_datasheet'
+    end
+  end
+
   resources :pinouts
 
   get '/tubes' => 'tubes#index'

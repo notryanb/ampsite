@@ -4,5 +4,22 @@ module ApplicationHelper
     return true unless column == 'id' || column == 'created_at' || column == 'updated_at' 
   end
 
+  def add_datasheet_tube_sub(tube)
+    tube = tube.class
+    address = "add_datasheet_"+"#{tube}"
+    address = address.downcase.to_sym
+  end
+
+  def edit_tube_sub(tube)
+    tube = tube.class
+    address = "edit_"+"#{tube}"
+    address = address.downcase.to_sym
+  end
+
+  def destroy_confirm_tube_sub(tube)
+    tube = tube.class
+    address = "destroy_confirm_"+"#{tube}"
+    address = address = address.downcase.to_sym
+  end
 
 end

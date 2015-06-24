@@ -1,6 +1,7 @@
 <% if authorize_options %>
     <div class="inline-list">
-      <li>Edit</li>
-      <li>Delete</li>
+      <%= link_to 'Add Datasheet', add_datasheet_tube_sub(tube) %>
+      <%= link_to 'Edit', edit_tube_sub(tube) %>
+      <%= link_to 'Destroy', destroy_confirm_tube_sub(tube) %>
     </div>
 <% end %>
