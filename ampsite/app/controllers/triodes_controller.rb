@@ -24,22 +24,28 @@ class TriodesController < ApplicationController
 
   def edit
     @triode = Triode.find_by(id: params[:id])
+    @triode_fields = @triode.class
     render 'edit'
   end
 
   def update
     @triode = Triode.find_by(id: params[:id])
     if @triode.update_attributes(triode_params)
-      render preamps_path
+      redirect_to preamps_path
     else
       render action: :edit
     end
   end
 
+  def destroy_confirm
+    @triode = Triode.find_by(id: params[:id])
+    render 'destroy'
+  end
+
   def destroy
     @triode = Triode.find_by(id: params[:id])
     @triode.destroy
-    render 'preamps'
+    redirect_to preamps_path
   end
 
   private
