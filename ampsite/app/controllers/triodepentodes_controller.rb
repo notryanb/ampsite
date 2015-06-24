@@ -24,6 +24,7 @@ class TriodepentodesController < ApplicationController
 
   def edit
     @triodepentode = Triodepentode.find_by(id: params[:id])
+    @triodepentode_fields = @triodepentode.class
     render 'edit'
   end
 
@@ -36,10 +37,15 @@ class TriodepentodesController < ApplicationController
     end
   end
 
+  def destroy_confirm
+    @triodepentode = Triodepentode.find_by(id: params[:id])
+    render 'destroy'
+  end
+
   def destroy
-    @triodepentode = Triodepentode.find_by(params[:id])
+    @triodepentode = Triodepentode.find_by(id: params[:id])
     @triodepentode.destroy
-    render 'preamps'
+    redirect_to preamps_path
   end
 
   private
