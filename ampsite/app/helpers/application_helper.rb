@@ -21,5 +21,4 @@ module ApplicationHelper
     address = "destroy_confirm_"+"#{tube}"
     address = address = address.downcase.to_sym
   end
-
 end

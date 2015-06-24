@@ -1,1 +1,8 @@
-This is where the destroy confirmation form will go.
+
+<div class="row">
+  <div class="large-12 columns">
+Are you sure you want to destroy <%= @diode.identifier %>?
+    <%= render partial: 'shared/destroy_tube_form', locals: {tube: @diode} %>
+  </div>
+</div>
+
