@@ -43,11 +43,15 @@ ActiveRecord::Schema.define(version: 20150623181821) do
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
 
   create_table "datasheets", force: :cascade do |t|
+    t.integer  "datasheetable_id"
+    t.string   "datasheetable_type"
     t.string   "url"
-    t.integer  "tube_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "datasheets", ["datasheetable_id", "datasheetable_type"], name: "index_datasheets_on_datasheetable_id_and_datasheetable_type", using: :btree
+  add_index "datasheets", ["datasheetable_type", "datasheetable_id"], name: "index_datasheets_on_datasheetable_type_and_datasheetable_id", using: :btree
 
   create_table "diodes", force: :cascade do |t|
     t.string   "identifier",               null: false
