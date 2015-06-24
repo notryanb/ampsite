@@ -1,6 +1,6 @@
 class TriodesController < ApplicationController
 
-  before_action :authorize!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :authorize!, except: [:show]
 
   def new
     @triode = Triode.new
