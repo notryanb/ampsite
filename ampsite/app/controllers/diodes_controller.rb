@@ -36,6 +36,11 @@ class DiodesController < ApplicationController
     end
   end
 
+  def destroy_confirm
+    @diode = Diode.find_by(params[:id])
+    render 'destroy'
+  end
+
   def destroy
     @diode = Diode.find_by(params[:id])
     @diode.destroy
@@ -51,7 +56,7 @@ private
                                   :rectifier_class,
                                   :filament_voltage,
                                   :filament_current,
-                                  :pinout,
+                                  :rms_anode_to_anode,
                                   :description,
                                   :notes)
   end
