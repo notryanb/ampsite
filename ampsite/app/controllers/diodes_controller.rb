@@ -45,7 +45,7 @@ class DiodesController < ApplicationController
   def destroy
     @diode = Diode.find_by(id: params[:id])
     @diode.destroy
-    render 'rectifiers'
+    redirect_to rectifiers_path
   end
 
   def add_datasheet
