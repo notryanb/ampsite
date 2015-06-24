@@ -1,7 +1,7 @@
 class DiodesController < ApplicationController
 
-  before_action :authorize!, only: [:new, :create, :update, :edit, :destroy]
-  
+  before_action :authorize!, except: [:show]
+
   def new
     @diode = Diode.new
     @diode_fields = @diode.class
@@ -24,6 +24,7 @@ class DiodesController < ApplicationController
 
   def edit
     @diode = Diode.find_by(id: params[:id])
+    @diode_fields = @diode.class
     render 'edit'
   end
 
@@ -37,14 +38,17 @@ class DiodesController < ApplicationController
   end
 
   def destroy_confirm
-    @diode = Diode.find_by(params[:id])
+    @diode = Diode.find_by(id: params[:id])
     render 'destroy'
   end
 
   def destroy
-    @diode = Diode.find_by(params[:id])
+    @diode = Diode.find_by(id: params[:id])
     @diode.destroy
     render 'rectifiers'
+  end
+
+  def add_datasheet
   end
 
 private
