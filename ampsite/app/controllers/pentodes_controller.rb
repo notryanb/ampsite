@@ -24,6 +24,7 @@ class PentodesController < ApplicationController
 
   def edit
     @pentode = Pentode.find_by(id: params[:id])
+    @pentode_fields = @pentode.class
     render 'edit'
   end
 
@@ -36,10 +37,15 @@ class PentodesController < ApplicationController
     end
   end
 
+  def destroy_confirm
+    @pentode = Pentode.find_by(id: params[:id])
+    render 'destroy'
+  end
+
   def destroy
     @pentode = Pentode.find_by(id: params[:id])
     @pentode.destroy
-    render 'powers'
+    redirect_to powers_path
   end
 
   private
