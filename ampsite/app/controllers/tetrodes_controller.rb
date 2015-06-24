@@ -24,6 +24,7 @@ class TetrodesController < ApplicationController
 
   def edit
     @tetrode = Tetrode.find_by(id: params[:id])
+    @tetrode_fields = @tetrode.class
     render 'edit'
   end
 
@@ -36,10 +37,15 @@ class TetrodesController < ApplicationController
     end
   end
 
+  def destroy_confirm
+    @tetrode = Tetrode.find_by(id: params[:id])
+    render 'destroy'
+  end
+
   def destroy
     @tetrode = Tetrode.find_by(id: params[:id])
     @tetrode.destroy
-    render 'powers'
+    redirect_to powers_path
   end
 
   private
