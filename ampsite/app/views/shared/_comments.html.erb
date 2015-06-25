@@ -4,16 +4,15 @@
 <div class="row">
   <div class="small-12 columns">
 
-
+<div class="content">
       <div class="small-2 columns forum-subheader"><%= comment.user.username %></div>
       
       <div class="small-10 columns forum-subheader">Subject: <%= @post.title %>  
         <div class="right">Posted: <%= comment.created_at.strftime("%b . %d . %Y") %></div>
       </div>
 
-
- 
       <div class="user-info small-2 columns">
+
         <% if comment.user.avatar.url != "/avatars/original/missing.png" %>
           <%= image_tag comment.user.avatar.url(:thumb) %> 
         <% end %>
@@ -37,8 +36,7 @@
             </div>
           <% end %>
       </div>
-
-
+</div>  
 
   </div>
 </div>
