@@ -2,6 +2,10 @@
   padding: 2em;
 }
 
+.content {
+  border: 1px solid #000;
+}
+
 .dash-menu {
   margin-top: 20px;
   background-color: #dfdfdf;
@@ -10,6 +14,12 @@
 .dash-focus {
   margin-top: 20px;
   background-color: :#696969;
+}
+
+.forum-container {
+
+  background-color: #dfdfdf;
+  border: 1px solid #553;
 }
 
 .login-form {
@@ -37,13 +47,14 @@
   text-decoration: none;
 }
 
-.table-header {
+.forum-header {
   color: #FFFFFF;
   background-color: #333333;
 }
 
-.table-subheader {
-  height: 15px;
+.forum-subheader {
+  min-height: 25px;
+  vertical-align: center;
   font-size: 0.8em;
   color: #FFFFFF;
   font-weight: 100;
@@ -84,6 +95,7 @@
   background-color: #efefef;
   vertical-align: top;
   font-size: 0.6rem;
+  min-height: 150px;
 }
 .user-stats {
   text-align: right;

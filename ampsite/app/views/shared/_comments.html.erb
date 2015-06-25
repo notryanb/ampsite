@@ -1,32 +1,46 @@
+
 <% @comments.each do |comment| %>
-<tr>
-  <th class="table-subheader"><%= comment.user.username %></th>
-  <th class="table-subheader">Subject: <%= @post.title %>  
-    <div class="right">Posted: <%= comment.created_at.strftime("%b . %d . %Y") %>
-    </div>
-  </th>
-</tr>
-<tr>
-  <td class="user-info">
-    <% if comment.user.avatar.url != "/avatars/original/missing.png" %>
-      <%= image_tag comment.user.avatar.url(:thumb) %> 
-    <% end %>
-    <div>
-      <b>Posts:</b> <%= comment.user.post_and_comment_count %>
-    </div>
-    <div>
-      <b>Location:</b> <%= comment.user.location %>
-    </div>
-  </td>
-  
-  <td class="td-content">
-    <div><%= comment.content %><div>
-      <% if comment.user.signature %>
-        <div class="sig-div"></div>
-        <div class="user-signature">
-          <%= comment.user.signature %>
+
+<div class="row">
+  <div class="small-12 columns">
+
+
+      <div class="small-2 columns forum-subheader"><%= comment.user.username %></div>
+      
+      <div class="small-10 columns forum-subheader">Subject: <%= @post.title %>  
+        <div class="right">Posted: <%= comment.created_at.strftime("%b . %d . %Y") %></div>
+      </div>
+
+
+ 
+      <div class="user-info small-2 columns">
+        <% if comment.user.avatar.url != "/avatars/original/missing.png" %>
+          <%= image_tag comment.user.avatar.url(:thumb) %> 
+        <% end %>
+
+        <div>
+          <b>Posts:</b> <%= comment.user.post_and_comment_count %>
         </div>
-      <% end %>
-  </td>
-</tr>
+        
+        <div>
+          <b>Location:</b> <%= comment.user.location %>
+        </div>
+      
+      </div>
+      
+      <div class="td-content small-10 columns">
+        <div><%= comment.content %><div>
+          <% if comment.user.signature %>
+            <div class="sig-div"></div>
+            <div class="user-signature">
+              <%= comment.user.signature %>
+            </div>
+          <% end %>
+      </div>
+
+
+
+  </div>
+</div>
+
 <% end %>
