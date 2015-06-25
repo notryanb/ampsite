@@ -116,7 +116,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :pinouts
+  resources :tubesockets do
+    member do
+      get 'destroy_confirm'
+    end
+  end
 
   get '/tubes' => 'tubes#index'
   get '/rectifiers' => 'tubes#rectifiers'

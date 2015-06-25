@@ -1,9 +1,27 @@
-<%= form_for tube do |f| %>
-  <% tube_fields.columns.each do |column| %>
-    <% if database_important_columns?(column.name) %>
-        <%= f.label column.name.to_sym %>
-        <%= f.text_field column.name.to_sym %>
-    <% end %>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row new-post">
+       <div class="large-4 push-1 columns">
+
+        <%= form_for tube do |f| %>
+          <% tube_fields.columns.each do |column| %>
+            <% if database_important_columns?(column.name) %>
+                <%= f.label column.name.to_sym %>
+                <%= f.text_field column.name.to_sym %>
+            <% end %>
+          <% end %>
+          <%= f.submit %>
+        <% end %>
+
+        <div class="large-3 pull-3 login-form columns">
+          <% if tube.errors.any? %>
+          <small class="error">Errors</small>
+            <% tube.errors.full_messages.uniq.each do |msg| %>
+                <small class="error"><%= msg %></small>
+            <% end %>
+          <% end %>
+        </div>
+
+    </div>
+  </div>
+</div>
