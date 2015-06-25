@@ -1,58 +1,60 @@
 <div class="row">
-  <div class="large-12 columns forum-nav">
-    <%= link_to 'New Comment', new_topic_post_comment_path(@topic, @post, @comment), class: "new-btn" %>
-    
-    <div class="right">
-      <%= link_to 'Forum Index', topics_path %> >>
-      <%= link_to @post.topic.title, topic_path(@topic) %> 
+  <div class="small-12 columns">
+
+    <div class="row">
+      <div class="small-12 columns forum-nav">
+        <%= link_to 'New Comment', new_topic_post_comment_path(@topic, @post, @comment), class: "new-btn" %>
+        
+        <div class="right">
+          <%= link_to 'Forum Index', topics_path %> >>
+          <%= link_to @post.topic.title, topic_path(@topic) %> 
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
 
-<div class="row">
-  <div class="large-12 columns">
-    <table class="posts large-12 columns">
-      <tr>
-        <th class="table-header small-2" scope="column">Author</th>
-        <th class="table-header" scope="column">Message</th>
-      </tr>
-      <tr>
-        <th class="table-subheader"><%= @post.user.username %></th>
+    <div class="small-12 columns">
 
-        <th class="table-subheader">Subject: <%= @post.title %>  
-          <div class="right">Posted: <%= @post.created_at.strftime("%b . %d . %Y") %>
+        <div class="row">
+          <div class="forum-header small-2 columns" scope="column">Author</div>
+          <div class="forum-header small-10 columns" scope="column">Message</div>
+        </div>
+
+        <div class="row">
+          <div class="forum-subheader small-2 columns"><%= @post.user.username %></div>
+          <div class="forum-subheader small-10 columns">Subject: <%= @post.title %>  
+            <div class="right">Posted: <%= @post.created_at.strftime("%b . %d . %Y") %></div>
           </div>
-        </th>
-      </tr>
+        </div>
 
-      <tr>
-        <td class="user-info">
-          <% if @post.user.has_avatar? %>
-            <%= image_tag @post.user.avatar.url(:thumb) %> 
-          <% end %>
-          <div>
-            <b>Posts:</b> <%= @post.user.post_and_comment_count %>
-          </div>
-          <div>
-            <b>Location:</b> <%= @post.user.location %>
-          </div>
-          </td>
-        <td class="td-content">
-          <div><%= @post.content %><div>
-          <% if @post.user.signature %>
-            <div class="sig-div"></div>
-            <div class="user-signature">
-              <%= @post.user.signature %>
+        <div class="row">
+            <div class="user-info small-2 columns">
+                <% if @post.user.has_avatar? %>
+                  <%= image_tag @post.user.avatar.url(:thumb) %> 
+                <% end %>
+                <div>
+                  <b>Posts:</b> <%= @post.user.post_and_comment_count %>
+                </div>
+                <div>
+                  <b>Location:</b> <%= @post.user.location %>
+                </div>
             </div>
-          <% end %></th>
-      </tr>
+            
+            <div class="td-content small-10 columns">
+                <div><%= @post.content %><div>
+                <% if @post.user.signature %>
+                  <div class="sig-div"></div>
+                  <div class="user-signature">
+                    <%= @post.user.signature %>
+                  </div>
+                <% end %>
+            </div>
+        </div>
+
+    </div>
+
+      <%= render 'shared/comments' %>
 
 
-      <% if @comments %>
-        <%= render 'shared/comments' %>
-      <% end %>
-
-    </table>
   </div>
 </div>
