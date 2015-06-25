@@ -1,6 +1,7 @@
 <div class="row">
   <div class="small-12 columns">
 
+
     <div class="row">
       <div class="small-12 columns forum-nav">
         <%= link_to 'New Comment', new_topic_post_comment_path(@topic, @post, @comment), class: "new-btn" %>
@@ -53,8 +54,7 @@
 
     </div>
 
-      <%= render 'shared/comments' %>
-
+    <%= render 'shared/comments' %>
 
   </div>
 </div>
