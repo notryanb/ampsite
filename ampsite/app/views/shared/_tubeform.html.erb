@@ -11,7 +11,7 @@
             <% end %>
           <% end %>
           <% if is_tube?(tube) %>
-            <p>BLAH</p>
+            <%= select("tubesocket", "tubesocket_id", Tubesocket.all.collect {|p| [ p.description, p.id ] }, {include_blank: 'None'}) %>
           <% end %>
           <%= f.submit %>
         <% end %>
