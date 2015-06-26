@@ -21,4 +21,12 @@ module ApplicationHelper
     address = "destroy_confirm_"+"#{tube}"
     address = address = address.downcase.to_sym
   end
+
+  def is_tube?(tube)
+    return true if tube.class == Triode ||
+                   tube.class == Triodepentode ||
+                   tube.class == Tetrode ||
+                   tube.class == Diode ||
+                   tube.class == Pentode
+  end
 end

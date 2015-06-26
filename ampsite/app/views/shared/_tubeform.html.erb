@@ -10,6 +10,9 @@
                 <%= f.text_field column.name.to_sym %>
             <% end %>
           <% end %>
+          <% if is_tube?(tube) %>
+            <p>BLAH</p>
+          <% end %>
           <%= f.submit %>
         <% end %>
 
