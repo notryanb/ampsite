@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :authorize
+  before_action :authorize, only: [:new, :create]
 
   def index
   end
