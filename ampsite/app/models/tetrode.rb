@@ -5,7 +5,7 @@ class Tetrode < ActiveRecord::Base
 
   def tubesocket?
     if self.tubesocket
-      return self.tubesocket
+      return self.tubesocket.description
     else
       return "NA"
     end 
