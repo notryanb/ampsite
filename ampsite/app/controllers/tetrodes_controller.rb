@@ -30,6 +30,7 @@ class TetrodesController < ApplicationController
 
   def update
     @tetrode = Tetrode.find_by(id: params[:id])
+    Pinout.create(pinoutable_id: @tetrode.id, pinoutable_type: @tetrode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
     if @tetrode.update_attributes(tetrode_params)
       render 'show'
     else
