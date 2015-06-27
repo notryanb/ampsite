@@ -11,6 +11,7 @@ class TetrodesController < ApplicationController
   def create
     @tetrode = Tetrode.new(tetrode_params)
     if @tetrode.save
+      Pinout.create(pinoutable_id: @tetrode.id, pinoutable_type: @tetrode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
       redirect_to powers_path
     else
       render action: :new
