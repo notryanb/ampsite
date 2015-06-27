@@ -15,6 +15,7 @@
             <th scope="column" class="topic-header">Pa Max</th>
             <th scope="column" class="topic-header">Vh</th>
             <th scope="column" class="topic-header">Ih</th>
+            <th scope="column" class="topic-header">Socket Type</th>
           </tr>
 
             <tr>
@@ -24,6 +25,7 @@
               <td><%= @tetrode.max_anode_dissipation %></td>
               <td><%= @tetrode.filament_voltage %></td>
               <td><%= @tetrode.filament_current %></td>
+              <td><%= @tetrode.tubesocket? %></td>
 
             </tr>
         </table>
