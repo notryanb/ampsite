@@ -14,6 +14,7 @@
           <th scope="column" class="topic-header">PIV</th>
           <th scope="column" class="topic-header">Voltage Drop</th>
           <th scope="column" class="topic-header">RMS Anode-Anode</th>
+          <th scope="column" class="topic-header">Socket Type</th>
         </tr>
 
         <tr>
@@ -22,6 +23,7 @@
           <td><%= @diode.max_peak_inverse_voltage %></td>
           <td><%= @diode.voltage_drop %></td>
           <td><%= @diode.rms_anode_to_anode %></td>
+          <td><%= @diode.tubesocket? %></td>
         </tr>
 
 
