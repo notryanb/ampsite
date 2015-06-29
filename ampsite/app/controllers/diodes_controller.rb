@@ -11,6 +11,7 @@ class DiodesController < ApplicationController
   def create
     @diode = Diode.new(diode_params)
     if @diode.save
+      Pinout.create(pinoutable_id: @diode.id, pinoutable_type: @diode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
       redirect_to rectifiers_path
     else
       render action: :new
@@ -31,6 +32,7 @@ class DiodesController < ApplicationController
   def update
     @diode = Diode.find_by(id: params[:id])
     if @diode.update_attributes(diode_params)
+      Pinout.create(pinoutable_id: @diode.id, pinoutable_type: @diode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
       render 'show'
     else
       render action: :edit
