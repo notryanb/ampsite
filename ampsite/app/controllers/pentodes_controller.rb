@@ -19,18 +19,18 @@ class PentodesController < ApplicationController
   end
 
   def show
-    @pentode = Pentode.find_by(id: params[:id])
+    @pentode = find_pentode
     render 'show'
   end
 
   def edit
-    @pentode = Pentode.find_by(id: params[:id])
+    @pentode = find_pentode
     @pentode_fields = @pentode.class
     render 'edit'
   end
 
   def update
-    @pentode = Pentode.find_by(id: params[:id])
+    @pentode = find_pentode
     Pinout.create(pinoutable_id: @pentode.id, pinoutable_type: @pentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
     if @pentode.update_attributes(pentode_params)
       render 'show'
@@ -40,12 +40,12 @@ class PentodesController < ApplicationController
   end
 
   def destroy_confirm
-    @pentode = Pentode.find_by(id: params[:id])
+    @pentode = find_pentode
     render 'destroy'
   end
 
   def destroy
-    @pentode = Pentode.find_by(id: params[:id])
+    @pentode = find_pentode
     @pentode.destroy
     redirect_to powers_path
   end
@@ -65,5 +65,10 @@ class PentodesController < ApplicationController
                                   :description,
                                   :notes)
   end
+
+  def find_pentode
+    Pentode.find_by(id: params[:id])
+  end
+
 
 end

@@ -14,6 +14,7 @@
             <th scope="column" class="topic-header">Class</th>
             <th scope="column" class="topic-header">Vh</th>
             <th scope="column" class="topic-header">Ih</th>
+            <th scope="column" class="topic-header">Socket Type</th>
           </tr>
 
           <tr>
@@ -21,6 +22,7 @@
             <td><%= @triode.type %></td>
             <td><%= @triode.filament_voltage %></td>
             <td><%= @triode.filament_current %></td>
+            <td><%= @triode.tubesocket? %></td>
           </tr>
 
         </table>

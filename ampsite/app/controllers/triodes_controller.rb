@@ -11,6 +11,7 @@ class TriodesController < ApplicationController
   def create
     @triode = Triode.new(triode_params)
     if @triode.save
+      Pinout.create(pinoutable_id: @triode.id, pinoutable_type: @triode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
       redirect_to preamps_path
     else
       render action: :new
@@ -18,19 +19,20 @@ class TriodesController < ApplicationController
   end
 
   def show
-    @triode = Triode.find_by(id: params[:id])
+    @triode = find_triode
     render 'show'
   end
 
   def edit
-    @triode = Triode.find_by(id: params[:id])
+    @triode = find_triode
     @triode_fields = @triode.class
     render 'edit'
   end
 
   def update
-    @triode = Triode.find_by(id: params[:id])
+    @triode = find_triode
     if @triode.update_attributes(triode_params)
+      Pinout.create(pinoutable_id: @triode.id, pinoutable_type: @triode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
       redirect_to preamps_path
     else
       render action: :edit
@@ -38,12 +40,12 @@ class TriodesController < ApplicationController
   end
 
   def destroy_confirm
-    @triode = Triode.find_by(id: params[:id])
+    @triode = find_triode
     render 'destroy'
   end
 
   def destroy
-    @triode = Triode.find_by(id: params[:id])
+    @triode = find_triode
     @triode.destroy
     redirect_to preamps_path
   end
@@ -62,6 +64,10 @@ class TriodesController < ApplicationController
                                   :pinout,
                                   :description,
                                   :notes)
+  end
+
+  def find_triode
+    Triode.find_by(id: params[:id])
   end
 
 end
