@@ -6,4 +6,12 @@ class Triode < ActiveRecord::Base
   def type
     "Triode"
   end
+
+  def tubesocket?
+    if self.tubesocket
+      return self.tubesocket.description
+    else
+      return "NA"
+    end 
+  end
 end
