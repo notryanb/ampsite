@@ -11,6 +11,7 @@ class TriodepentodesController < ApplicationController
   def create
     @triodepentode = Triodepentode.new(triodepentode_params)
     if @triodepentode.save
+      Pinout.create(pinoutable_id: @triodepentode.id, pinoutable_type: @triodepentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
       redirect_to preamps_path
     else
       render action: :new
@@ -18,19 +19,25 @@ class TriodepentodesController < ApplicationController
   end
 
   def show
-    @triodepentode = Triodepentode.find_by(id: params[:id])
+    @triodepentode = find_triodepentode
     render 'show'
   end
 
   def edit
-    @triodepentode = Triodepentode.find_by(id: params[:id])
+    @triodepentode = find_triodepentode
     @triodepentode_fields = @triodepentode.class
     render 'edit'
   end
 
   def update
-    @triodepentode = Triodepentode.find_by(id: params[:id])
+    @triodepentode = find_triodepentode
+    @pinout = Pinout.find_by(params[pinoutable_id: @triodepentode.id])
     if @triodepentode.update_attributes(triodepentode_params)
+      if @pinout
+        @pinout.update_attributes(pinoutable_id: @triodepentode.id, pinoutable_type: @triodepentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+      else
+        Pinout.create(pinoutable_id: @triodepentode.id, pinoutable_type: @triodepentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+      end
       render 'show'
     else
       render action: :edit
@@ -38,12 +45,12 @@ class TriodepentodesController < ApplicationController
   end
 
   def destroy_confirm
-    @triodepentode = Triodepentode.find_by(id: params[:id])
+    @triodepentode = find_triodepentode
     render 'destroy'
   end
 
   def destroy
-    @triodepentode = Triodepentode.find_by(id: params[:id])
+    @triodepentode = find_triodepentode
     @triodepentode.destroy
     redirect_to preamps_path
   end
@@ -62,6 +69,11 @@ class TriodepentodesController < ApplicationController
                                   :pinout,
                                   :description,
                                   :notes)
+  end
+
+
+  def find_triodepentode
+    Triodepentode.find_by(id: params[:id])
   end
 
 end
