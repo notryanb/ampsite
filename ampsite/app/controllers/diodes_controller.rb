@@ -2,6 +2,10 @@ class DiodesController < ApplicationController
 
   before_action :authorize!, except: [:show]
 
+  def index
+    @diodes = Diode.all
+  end
+
   def new
     @diode = Diode.new
     @diode_fields = @diode.class
