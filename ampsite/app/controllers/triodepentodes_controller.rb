@@ -31,13 +31,9 @@ class TriodepentodesController < ApplicationController
 
   def update
     @triodepentode = find_triodepentode
-    pinout = find_pinout
+    @pinout = find_pinout
     if @triodepentode.update_attributes(triodepentode_params)
-      if pinout
-        update_pinout
-      else
-        create_pinout
-      end
+      @pinout ? update_pinout : create_pinout
       render 'show'
     else
       render action: :edit
@@ -76,7 +72,7 @@ class TriodepentodesController < ApplicationController
   end
 
   def update_pinout
-    pinout.update_attributes(pinoutable_id: @triodepentode.id, pinoutable_type: @triodepentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+    @pinout.update_attributes(pinoutable_id: @triodepentode.id, pinoutable_type: @triodepentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
   end
 
   def find_pinout
