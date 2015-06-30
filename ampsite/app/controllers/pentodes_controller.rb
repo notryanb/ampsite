@@ -11,7 +11,7 @@ class PentodesController < ApplicationController
   def create
     @pentode = Pentode.new(pentode_params)
     if @pentode.save
-      Pinout.create(pinoutable_id: @pentode.id, pinoutable_type: @pentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+      create_pinout
       redirect_to powers_path
     else
       render action: :new
@@ -31,8 +31,9 @@ class PentodesController < ApplicationController
 
   def update
     @pentode = find_pentode
-    Pinout.create(pinoutable_id: @pentode.id, pinoutable_type: @pentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+    @pinout = find_pinout
     if @pentode.update_attributes(pentode_params)
+      @pinout ? update_pinout : create_pinout
       render 'show'
     else
       render action: :edit
@@ -68,6 +69,18 @@ class PentodesController < ApplicationController
 
   def find_pentode
     Pentode.find_by(id: params[:id])
+  end
+
+  def create_pinout
+    Pinout.create(pinoutable_id: @pentode.id, pinoutable_type: @pentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+  end
+
+  def update_pinout
+    @pinout.update_attributes(pinoutable_id: @pentode.id, pinoutable_type: @pentode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+  end
+
+  def find_pinout
+    Pinout.find_by(params[pinoutable_id: @pentode.id])
   end
 
 
