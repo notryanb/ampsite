@@ -11,7 +11,7 @@ class TetrodesController < ApplicationController
   def create
     @tetrode = Tetrode.new(tetrode_params)
     if @tetrode.save
-      Pinout.create(pinoutable_id: @tetrode.id, pinoutable_type: @tetrode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+      create_pinout
       redirect_to powers_path
     else
       render action: :new
@@ -19,20 +19,21 @@ class TetrodesController < ApplicationController
   end
 
   def show
-    @tetrode = Tetrode.find_by(id: params[:id])
+    @tetrode = find_tetrode
     render 'show'
   end
 
   def edit
-    @tetrode = Tetrode.find_by(id: params[:id])
+    @tetrode = find_tetrode
     @tetrode_fields = @tetrode.class
     render 'edit'
   end
 
   def update
-    @tetrode = Tetrode.find_by(id: params[:id])
-    Pinout.create(pinoutable_id: @tetrode.id, pinoutable_type: @tetrode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+    @tetrode = find_tetrode
+    @pinout = find_pinout
     if @tetrode.update_attributes(tetrode_params)
+      @pinout ? update_pinout : create_pinout
       render 'show'
     else
       render action: :edit
@@ -40,12 +41,12 @@ class TetrodesController < ApplicationController
   end
 
   def destroy_confirm
-    @tetrode = Tetrode.find_by(id: params[:id])
+    @tetrode = find_tetrode
     render 'destroy'
   end
 
   def destroy
-    @tetrode = Tetrode.find_by(id: params[:id])
+    @tetrode = find_tetrode
     @tetrode.destroy
     redirect_to powers_path
   end
@@ -64,6 +65,22 @@ class TetrodesController < ApplicationController
                                   :pinout,
                                   :description,
                                   :notes)
+  end
+
+  def create_pinout
+    Pinout.create(pinoutable_id: @tetrode.id, pinoutable_type: @tetrode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+  end
+
+  def update_pinout
+    @pinout.update_attributes(pinoutable_id: @tetrode.id, pinoutable_type: @tetrode.class, tubesocket_id: params[:tubesocket][:tubesocket_id] )
+  end
+
+  def find_pinout
+    Pinout.find_by(params[pinoutable_id: @tetrode.id])
+  end
+
+  def find_tetrode
+    Tetrode.find_by(id: params[:id])
   end
 
 end
