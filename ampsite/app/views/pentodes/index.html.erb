@@ -1,7 +1,12 @@
 <div class="row">
     <div class="large-12 columns">
 
-        <table class="posts large-12 columns">
+      <div class="columns small-3 dash-menu">
+            <%= render 'shared/tubenav' %>
+      </div>
+
+
+        <table class="posts columns small-8">
           <caption>Pentodes</caption>
           <tr>
             <th scope="column" class="topic-header">Identifier</th>
@@ -13,14 +18,10 @@
           </tr>
 
 
-            <% @powers.each do |tube| %>
+            <% @pentodes.each do |tube| %>
             <tr>
               <td>
-                <% if tube.class == Pentode %>
-                    <%= link_to tube.identifier, pentode_path(tube.id), class: "tube-link" %>
-                <% else %>
-                    <%= link_to tube.identifier, tetrode_path(tube.id), class: "tube-link" %>
-                <% end %>
+                <%= link_to tube.identifier, pentode_path(tube.id), class: "tube-link" %>
               </td>
               <td><%= tube.class %></td>
               <td><%= tube.max_anode_voltage %></td>

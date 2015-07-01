@@ -2,6 +2,10 @@ class TriodesController < ApplicationController
 
   before_action :authorize!, except: [:show]
 
+  def index
+    @triodes = Triode.all
+  end
+
   def new
     @triode = Triode.new
     @triode_fields = @triode.class

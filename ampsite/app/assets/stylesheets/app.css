@@ -79,6 +79,11 @@
   border-bottom: 1px solid #000000;
 }
 
+.sign-up {
+  padding: .2rem;
+  border: 3px solid #000;
+}
+
 .stats-header {
   background-color: #333333;
   color: #efefef;
@@ -94,3 +99,5 @@
 .user-stats {
   text-align: right;
 }
+
+

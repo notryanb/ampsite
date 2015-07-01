@@ -1,7 +1,12 @@
 <div class="row">
     <div class="large-12 columns">
 
-        <table class="posts large-12 columns">
+      <div class="columns small-3 dash-menu">
+            <%= render 'shared/tubenav' %>
+      </div>
+
+
+        <table class="posts columns small-8">
 
           <tr>
             <th scope="column" class="topic-header">Identifier</th>
@@ -10,14 +15,10 @@
             <th scope="column" class="topic-header">Ih</th>
           </tr>
 
-          <% @preamps.each do |tube| %>
+          <% @triodepentodes.each do |tube| %>
           <tr>
             <td>
-              <% if tube.class == Triode %>
-                <%= link_to tube.identifier, triode_path(tube.id), class: "tube-link" %>
-              <% else %>
-                <%= link_to tube.identifier, triodepentode_path(tube.id), class: "tube-link" %>
-              <% end %>
+              <%= link_to tube.identifier, triodepentode_path(tube.id), class: "tube-link" %>
             </td>
             <td><%= tube.type %></td>
             <td><%= tube.filament_voltage %></td>

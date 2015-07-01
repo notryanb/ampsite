@@ -2,6 +2,10 @@ class TriodepentodesController < ApplicationController
 
   before_action :authorize!, except: [:show]
 
+  def index
+    @triodepentodes = Triodepentode.all
+  end
+
   def new
     @triodepentode = Triodepentode.new
     @triodepentode_fields = @triodepentode.class

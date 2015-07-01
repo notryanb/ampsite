@@ -2,6 +2,10 @@ class TetrodesController < ApplicationController
 
   before_action :authorize!, except: [:show]
 
+  def index
+    @tetrodes = Tetrode.all
+  end
+
   def new
     @tetrode = Tetrode.new
     @tetrode_fields = @tetrode.class

@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="large-12 columns">
+
+      <div class="columns small-3 dash-menu">
+            <%= render 'shared/tubenav' %>
+      </div>
+
+
+        <table class="posts columns small-8">
+          <caption>Tetrodes</caption>
+          <tr>
+            <th scope="column" class="topic-header">Identifier</th>
+            <th scope="column" class="topic-header">Type</th>
+            <th scope="column" class="topic-header">Va Max</th>
+            <th scope="column" class="topic-header">Pa Max</th>
+            <th scope="column" class="topic-header">Vh</th>
+            <th scope="column" class="topic-header">Ih</th>
+          </tr>
+
+
+            <% @tetrodes.each do |tube| %>
+            <tr>
+              <td>
+                <%= link_to tube.identifier, tetrode_path(tube.id), class: "tube-link" %>
+              </td>
+              <td><%= tube.class %></td>
+              <td><%= tube.max_anode_voltage %></td>
+              <td><%= tube.max_anode_dissipation %></td>
+              <td><%= tube.filament_voltage %></td>
+              <td><%= tube.filament_current %></td>
+
+            </tr>
+            <% end %>
+
+        </table>
+
+    </div>
+</div>
