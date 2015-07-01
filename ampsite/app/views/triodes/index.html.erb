@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="large-12 columns">
+      
+      <div class="columns small-3 dash-menu">
+            <%= render 'shared/tubenav' %>
+      </div>
+
+
+        <table class="posts columns small-8">
+
+          <tr>
+            <th scope="column" class="topic-header">Identifier</th>
+            <th scope="column" class="topic-header">Class</th>
+            <th scope="column" class="topic-header">Vh</th>
+            <th scope="column" class="topic-header">Ih</th>
+          </tr>
+
+          <% @triodes.each do |tube| %>
+          <tr>
+            <td>
+              <%= link_to tube.identifier, triode_path(tube.id), class: "tube-link" %>
+            </td>
+            <td><%= tube.type %></td>
+            <td><%= tube.filament_voltage %></td>
+            <td><%= tube.filament_current %></td>
+          </tr>
+          <% end %>
+
+        </table>
+
+    </div>
+</div>

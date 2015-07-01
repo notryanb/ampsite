@@ -2,6 +2,10 @@ class PentodesController < ApplicationController
 
   before_action :authorize!, except: [:show]
 
+  def index
+    @pentodes = Pentode.all
+  end
+
   def new
     @pentode = Pentode.new
     @pentode_fields = @pentode.class
