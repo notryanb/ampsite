@@ -59,6 +59,10 @@
   padding-top:20px;
 }
 
+.post-box {
+  min-height: 250px;
+}
+
 .td-content {
   vertical-align: top;
   height: 150px;
