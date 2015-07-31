@@ -14,19 +14,19 @@
           <th scope="column" class="topic-header">PIV</th>
           <th scope="column" class="topic-header">Voltage Drop</th>
           <th scope="column" class="topic-header">RMS Anode-Anode</th>
+          <th scope="column" class="topic-header">Ih</th>
           <th scope="column" class="topic-header">Socket Type</th>
         </tr>
 
         <tr>
           <td><%= @diode.identifier %></td>
           <td><%= @diode.rectifier_class %></td>
-          <td><%= @diode.max_peak_inverse_voltage %></td>
-          <td><%= @diode.voltage_drop %></td>
-          <td><%= @diode.rms_anode_to_anode %></td>
+          <td><%= @diode.max_peak_inverse_voltage %> vDC</td>
+          <td><%= @diode.voltage_drop %> vDC</td>
+          <td><%= @diode.rms_anode_to_anode %> vAC</td>
+          <td><%= @diode.filament_current %> mA</td>
           <td><%= @diode.tubesocket? %></td>
         </tr>
-
-
       </table>
 
     </div>

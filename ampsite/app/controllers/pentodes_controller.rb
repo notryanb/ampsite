@@ -16,7 +16,7 @@ class PentodesController < ApplicationController
     @pentode = Pentode.new(pentode_params)
     if @pentode.save
       create_pinout
-      redirect_to powers_path
+      redirect_to pentodes_path
     else
       render action: :new
     end

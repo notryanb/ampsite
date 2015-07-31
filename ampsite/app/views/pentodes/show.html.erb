@@ -13,6 +13,8 @@
             <th scope="column" class="topic-header">Type</th>
             <th scope="column" class="topic-header">Va Max</th>
             <th scope="column" class="topic-header">Pa Max</th>
+            <th scope="column" class="topic-header">Vg2 Max</th>
+            <th scope="column" class="topic-header">Pg2 Max</th>
             <th scope="column" class="topic-header">Vh</th>
             <th scope="column" class="topic-header">Ih</th>
             <th scope="column" class="topic-header">Socket Type</th>
@@ -21,10 +23,12 @@
             <tr>
               <td><%= @pentode.identifier%></td>
               <td><%= @pentode.class %></td>
-              <td><%= @pentode.max_anode_voltage %></td>
-              <td><%= @pentode.max_anode_dissipation %></td>
-              <td><%= @pentode.filament_voltage %></td>
-              <td><%= @pentode.filament_current %></td>
+              <td><%= @pentode.max_anode_voltage %> vDC</td>
+              <td><%= @pentode.max_anode_dissipation %> Watts</td>
+              <td><%= @pentode.max_grid2_voltage %> vDC</td>
+              <td><%= @pentode.max_grid2_dissipation %> Watts</td>
+              <td><%= @pentode.filament_voltage %> vDC</td>
+              <td><%= @pentode.filament_current %> mA</td>
               <td><%= @pentode.tubesocket? %></td>
 
             </tr>
