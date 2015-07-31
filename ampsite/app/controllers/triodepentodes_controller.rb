@@ -1,6 +1,6 @@
 class TriodepentodesController < ApplicationController
 
-  before_action :authorize!, except: [:show]
+  before_action :authorize!, only: [:new, :create, :edit, :update, :destroy, :destroy_confirm]
 
   def index
     @triodepentodes = Triodepentode.all

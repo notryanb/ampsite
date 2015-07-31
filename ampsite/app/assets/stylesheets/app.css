@@ -8,7 +8,7 @@
 
 .dash-menu {
   margin-top: 20px;
-  background-color: #dfdfdf;
+  background-color: #fff;
 }
 
 .dash-focus {
@@ -70,6 +70,11 @@
 
 .topic-description {
   font-size: 0.8rem;
+}
+
+.tube-admin {
+  background-color: #fff;
+  border: 2px solid #000;
 }
 
 .sig-div {
