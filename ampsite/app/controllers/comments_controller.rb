@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   
-  before_action :authorize, only: [:new, :create]
+  before_action :authorize, only: [:new, :create, :edit,  :update, :destroy]
    
   def show
   end
 
   def new
+    @post = Post.find_by(id: params[:post_id])
     @post_id = params[:post_id]
     @comment = Comment.new
     render 'new'
