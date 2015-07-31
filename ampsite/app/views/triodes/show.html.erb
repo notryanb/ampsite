@@ -12,6 +12,7 @@
           <tr>
             <th scope="column" class="topic-header">Identifier</th>
             <th scope="column" class="topic-header">Class</th>
+            <th scope="column" class="topic-header">Va Max</th>
             <th scope="column" class="topic-header">Vh</th>
             <th scope="column" class="topic-header">Ih</th>
             <th scope="column" class="topic-header">Socket Type</th>
@@ -20,8 +21,9 @@
           <tr>
             <td><%= @triode.identifier %></td>
             <td><%= @triode.type %></td>
-            <td><%= @triode.filament_voltage %></td>
-            <td><%= @triode.filament_current %></td>
+            <td><%= @triode.max_anode_voltage %> vDC</td>
+            <td><%= @triode.filament_voltage %> vAC</td>
+            <td><%= @triode.filament_current %> mA</td>
             <td><%= @triode.tubesocket? %></td>
           </tr>
 

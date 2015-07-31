@@ -16,7 +16,7 @@ class TriodesController < ApplicationController
     @triode = Triode.new(triode_params)
     if @triode.save
       create_pinout
-      redirect_to preamps_path
+      redirect_to triodes_path
     else
       render action: :new
     end

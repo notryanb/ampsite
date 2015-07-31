@@ -11,6 +11,7 @@
           <tr>
             <th scope="column" class="topic-header">Identifier</th>
             <th scope="column" class="topic-header">Class</th>
+            <th scope="column" class="topic-header">Mu</th>
             <th scope="column" class="topic-header">Vh</th>
             <th scope="column" class="topic-header">Ih</th>
           </tr>
@@ -21,8 +22,9 @@
               <%= link_to tube.identifier, triode_path(tube.id), class: "tube-link" %>
             </td>
             <td><%= tube.type %></td>
-            <td><%= tube.filament_voltage %></td>
-            <td><%= tube.filament_current %></td>
+            <td><%= tube.amplification_factor %></td>
+            <td><%= tube.filament_voltage %> vAC</td>
+            <td><%= tube.filament_current %> mA</td>
           </tr>
           <% end %>
 

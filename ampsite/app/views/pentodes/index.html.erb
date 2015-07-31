@@ -24,10 +24,10 @@
                 <%= link_to tube.identifier, pentode_path(tube.id), class: "tube-link" %>
               </td>
               <td><%= tube.class %></td>
-              <td><%= tube.max_anode_voltage %></td>
-              <td><%= tube.max_anode_dissipation %></td>
-              <td><%= tube.filament_voltage %></td>
-              <td><%= tube.filament_current %></td>
+              <td><%= tube.max_anode_voltage %> vDC</td>
+              <td><%= tube.max_anode_dissipation %> Watts</td>
+              <td><%= tube.filament_voltage %> vAC</td>
+              <td><%= tube.filament_current %> mA</td>
 
             </tr>
             <% end %>
