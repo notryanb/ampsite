@@ -29,4 +29,7 @@ module ApplicationHelper
                    tube.class == Diode ||
                    tube.class == Pentode
   end
+
+
+
 end

@@ -12,4 +12,19 @@ class Post < ActiveRecord::Base
 
   default_scope { order(:created_at => :desc) }
 
+
+  # Takes custom tags and formats for HTML
+
+  # def format_url_tags
+  #   url_start = "[url]"
+  #   url_end = "[/url]"
+  #   url = self.content[/#{Regexp.escape(url_start)}(.*?)#{Regexp.escape(url_end)}/m, 1]
+  #   self.content.gsub!("[url]", '<a href="'+url).gsub!("[/url]", '></a>')
+  # end
+
+  # def has_spaces?(input)
+  #   input == input.split(" ").join
+  # end
+
+
 end
