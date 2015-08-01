@@ -21,8 +21,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @post.format_url_tags
-    # p @post.content
+    @post.format_url_tags
+    p @post.content
 
     if @post.save
       redirect_to topic_path(@post.topic_id)
