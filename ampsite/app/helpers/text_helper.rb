@@ -12,11 +12,15 @@ module TextHelper
   end
 
   def format_url_tags
-    url = remove_url_start(get_url)   
-    self.content.gsub!("[url]", '<a href="https://').gsub!("[/url]", '">' + url + '</a>') if has_spaces?(url)
+    url = remove_url_start(get_url)  
+    if !has_spaces?(url) 
+      self.content.gsub!("[url]", '<a href="https://').gsub!("[/url]", '">' + url + '</a>')
+    else
+      self.content
+    end
   end
 
   def has_spaces?(input)
-    input == input.split(" ").join
+    input != input.split(" ").join
   end
 end
