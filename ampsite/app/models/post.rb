@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  include TextHelper
+  
   belongs_to :user, :foreign_key => :user_id
   belongs_to :topic, :foreign_key => :topic_id
   has_many :comments, as: :commentable
@@ -12,21 +14,6 @@ class Post < ActiveRecord::Base
 
   default_scope { order(:created_at => :desc) }
 
-
-  # Takes custom tags and formats for HTML
-
-  def format_url_tags
-    url_start = "[url]"
-    url_end = "[/url]"
-    p self.content
-    url = self.content[/#{Regexp.escape(url_start)}(.*?)#{Regexp.escape(url_end)}/m, 1]
-    p url
-    self.content.gsub!("[url]", '<a href="http://').gsub!("[/url]", '">' + url + '</a>')
-  end
-
-  def has_spaces?(input)
-    input == input.split(" ").join
-  end
 
 
 end

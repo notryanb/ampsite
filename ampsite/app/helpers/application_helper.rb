@@ -30,6 +30,4 @@ module ApplicationHelper
                    tube.class == Pentode
   end
 
-
-
 end
